@@ -5,7 +5,7 @@ Download from: [https://www.pling.com/p/1312669/](https://www.pling.com/p/131266
 
 ### Previews: 
 
-![Image of ditto](https://github.com/adhec/dittoMenuKDE/blob/main/preview.png)
+![Image of ditto](https://github.com/adhec/dittoMenuKDE/blob/main/preview.jpg)
 
 ### Coffee
 
