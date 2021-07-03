@@ -44,8 +44,8 @@ PlasmaCore.Dialog {
     hideOnWindowDeactivate: true
 
     property int iconSize: units.iconSizes.large
-    property int cellSize: iconSize + theme.mSize(theme.defaultFont).height
-                           + (2 * units.smallSpacing)
+    property int cellSize: iconSize
+                           + units.gridUnit * 2
                            + (2 * Math.max(highlightItemSvg.margins.top + highlightItemSvg.margins.bottom,
                                            highlightItemSvg.margins.left + highlightItemSvg.margins.right))
     property bool searching: (searchField.text != "")
@@ -106,7 +106,7 @@ PlasmaCore.Dialog {
                              screenAvail.height);
 
 
-        var offset = units.gridUnit;
+        var offset = units.largeSpacing * 0.5;
 
         // Fall back to bottom-left of screen area when the applet is on the desktop or floating.
         var x = offset;
@@ -252,19 +252,19 @@ PlasmaCore.Dialog {
 
             ListDelegate {
                 text: i18nc("@action", "Lock Screen")
-                icon: "system-shutdown"
+                icon: "system-lock-screen"
                 highlight: delegateHighlight
                 enabled: pmEngine.data["Sleep States"]["LockScreen"]
                 size: units.iconSizes.smallMedium
-                onClicked: pmEngine.performOperation("requestShutDown")
+                onClicked: pmEngine.performOperation("lockScreen")
             }
 
             ListDelegate {
                 text: i18nd("plasma_lookandfeel_org.kde.lookandfeel", "Leave ... ")
                 highlight: delegateHighlight
-                icon: "system-lock-screen"
+                icon: "system-shutdown"
                 size: units.iconSizes.smallMedium
-                onClicked: pmEngine.performOperation("lockScreen")
+                onClicked:  pmEngine.performOperation("requestShutDown")
             }
         }
 
@@ -481,6 +481,7 @@ PlasmaCore.Dialog {
 
                         horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOff
                         verticalScrollBarPolicy: Qt.ScrollBarAlwaysOff
+                        iconSize: root.iconSize
 
                         dragEnabled: (index == 0)
 

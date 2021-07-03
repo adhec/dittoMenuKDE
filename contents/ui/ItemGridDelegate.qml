@@ -19,26 +19,26 @@
 
 import QtQuick 2.0
 
-import org.kde.plasma.plasmoid 2.0
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
-import org.kde.kquickcontrolsaddons 2.0
 
 import "../code/tools.js" as Tools
 
 Item {
     id: item
 
-    width: GridView.view.cellWidth
-    height: width
+    width:  GridView.view.cellWidth
+    height: GridView.view.cellHeight
 
     property bool showLabel: true
 
-    readonly property int itemIndex: model.index
-    readonly property url url: model.url != undefined ? model.url : ""
-    property bool pressed: false
-    readonly property bool hasActionList: ((model.favoriteId != null)
-        || (("hasActionList" in model) && (model.hasActionList == true)))
+    property int itemIndex: model.index
+    property string favoriteId: model.favoriteId !== undefined ? model.favoriteId : ""
+    property url url: model.url !== undefined ? model.url : ""
+    property variant icon: model.decoration !== undefined ? model.decoration : ""
+    property var m: model
+    property bool hasActionList: ((model.favoriteId !== null)
+                                  || (("hasActionList" in model) && (model.hasActionList === true)))
 
     Accessible.role: Accessible.MenuItem
     Accessible.name: model.display
@@ -51,61 +51,68 @@ Item {
     }
 
     function actionTriggered(actionId, actionArgument) {
-        Tools.triggerAction(plasmoid, GridView.view.model, model.index, actionId, actionArgument);
+        var close = (Tools.triggerAction(GridView.view.model, model.index, actionId, actionArgument) === true);
+        if (close) root.toggle();
     }
 
-    PlasmaCore.IconItem {
-        id: icon
+    Item{
+        height: iconSize + units.gridUnit * 2 + units.smallSpacing
+        width: parent.width
+        anchors.centerIn: parent
 
-        y: showLabel ? (2 * highlightItemSvg.margins.top) : 0
-
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: showLabel ? undefined : parent.verticalCenter
-
-        width: iconSize
-        height: width
-
-        animated: false
-        usesPlasmaTheme: item.GridView.view.usesPlasmaTheme
-
-        source: model.decoration
-    }
-
-    PlasmaComponents.Label {
-        id: label
-
-        visible: showLabel
-
-        anchors {
-            top: icon.bottom
-            topMargin: units.smallSpacing
-            left: parent.left
-            leftMargin: highlightItemSvg.margins.left
-            right: parent.right
-            rightMargin: highlightItemSvg.margins.right
+        PlasmaCore.IconItem {
+            id: icon
+            anchors{
+                top: parent.top
+                horizontalCenter: parent.horizontalCenter
+            }
+            width: units.iconSizes.large
+            height: width
+            colorGroup: PlasmaCore.Theme.ComplementaryColorGroup
+            animated: false
+            usesPlasmaTheme: item.GridView.view.usesPlasmaTheme
+            source: model.decoration
         }
 
-        horizontalAlignment: Text.AlignHCenter
-
-        elide: Text.ElideRight
-        wrapMode: Text.NoWrap
-
-        text: model.display
+        PlasmaComponents.Label {
+            id: label
+            visible: showLabel
+            anchors {
+                top: icon.bottom
+                topMargin: units.smallSpacing
+                horizontalCenter: parent.horizontalCenter
+            }
+            maximumLineCount: plasmoid.configuration.labels2lines ? 2 : 1
+            horizontalAlignment: Text.AlignHCenter
+            width: parent.width - units.largeSpacing
+            height: units.gridUnit * 2
+            elide: Text.ElideRight
+            wrapMode: Text.Wrap
+            color: theme.textColor
+            text: ("name" in model ? model.name : model.display)
+        }
+    }
+    PlasmaCore.ToolTipArea {
+        id: toolTip
+        property string text: model.display
+        anchors.fill: parent
+        active: root.visible && label.truncated
+        mainItem: toolTipDelegate
+        onContainsMouseChanged: item.GridView.view.itemContainsMouseChanged(containsMouse)
     }
 
     Keys.onPressed: {
-        if (event.key == Qt.Key_Menu && hasActionList) {
+        if (event.key === Qt.Key_Menu && hasActionList) {
             event.accepted = true;
             openActionMenu(item);
-        } else if ((event.key == Qt.Key_Enter || event.key == Qt.Key_Return)) {
+        } else if ((event.key === Qt.Key_Enter || event.key === Qt.Key_Return)) {
             event.accepted = true;
-            GridView.view.model.trigger(index, "", null);
-
-            if ("toggle" in root) {
+            if ("trigger" in GridView.view.model) {
+                GridView.view.model.trigger(index, "", null);
                 root.toggle();
-            } else {
-                root.visible = false;
             }
+
+            itemGrid.itemActivated(index, "", null);
         }
     }
 }

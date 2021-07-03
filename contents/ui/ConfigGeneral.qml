@@ -47,10 +47,10 @@ Item {
 
     property alias cfg_numberColumns: numberColumns.value
     property alias cfg_numberRows: numberRows.value
-    property alias cfg_showAtCenter: showAtCenter.checked
     property alias cfg_showFavoritesFirst: showFavoritesFirst.checked
 
     property alias cfg_viewUser: viewUser.checked
+    property alias cfg_labels2lines: labels2lines.checked
     property alias cfg_displayPosition: displayPosition.currentIndex
 
     ColumnLayout {
@@ -186,14 +186,6 @@ Item {
                     id: showFavoritesFirst
                     text: i18n("Show favorites first")
                 }
-                CheckBox {
-                    id: showAtCenter
-                    text: i18n("Position launcher at the center of the screen")
-                }
-                // CheckBox {
-                //     id: switchCategoriesOnHover
-                //     text: i18n("Switch categories on hover")
-                // }
             }
         }
 
@@ -238,6 +230,10 @@ Item {
                     id: viewUser
                     text: i18n("Show user icon")
                 }
+                CheckBox {
+                    id: labels2lines
+                    text: i18n("Show labels in two lines")
+                }
             }
         }
         
@@ -281,15 +277,3 @@ Item {
         }
     }
 }
-//SpinBox{
-//                    id: iconSizeSpn
-//                    minimumValue: 16
-//                    maximumValue: 128
-//                    suffix: " " + i18nc("pixels","px.")
-//                    enabled: !iconFillChk.checked
-//                }
-//
-//                Label {
-//                    Layout.leftMargin: units.smallSpacing
-//                    text: "maximum"
-//                }

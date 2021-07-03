@@ -42,7 +42,7 @@
     </entry>
 
     <entry name="numberRows" type="Int">
-    <default>5</default>
+    <default>4</default>
     </entry>
 
     <entry name="favoriteApps" type="StringList">
@@ -56,6 +56,9 @@
     </entry>
 
     <entry name="useExtraRunners" type="Bool">
+      <default>true</default>
+    </entry>
+    <entry name="labels2lines" type="Bool">
       <default>true</default>
     </entry>
     <entry name="extraRunners" type="StringList">
