@@ -51,7 +51,7 @@ Item {
     }
 
     function actionTriggered(actionId, actionArgument) {
-        var close = (Tools.triggerAction(GridView.view.model, model.index, actionId, actionArgument) === true);
+        var close = (Tools.triggerAction(plasmoid, GridView.view.model, model.index, actionId, actionArgument) === true);
         if (close) root.toggle();
     }
 
