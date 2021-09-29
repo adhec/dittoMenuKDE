@@ -239,7 +239,7 @@ PlasmaCore.Dialog {
 
             ListDelegate {
                 id: iconMenu
-                text: "System Preferences"
+                text: i18n("System Preferences")
                 highlight: delegateHighlight
                 icon: "configure"
                 size: units.iconSizes.smallMedium
