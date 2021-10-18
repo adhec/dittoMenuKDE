@@ -327,6 +327,7 @@ PlasmaCore.Dialog {
             placeholderText: i18n("Search ...")
             //font.pointSize: 14 // fixme: QTBUG font size in plasmaComponent3
             text: ""
+            clearButtonShown: true
             onTextChanged: {
                 runnerModel.query = text;
             }
