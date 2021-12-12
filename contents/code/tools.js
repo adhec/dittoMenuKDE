@@ -53,7 +53,7 @@ function createFavoriteActions(i18n, favoriteModel, favoriteId) {
 
             if (favoriteModel.isFavorite(favoriteId)) {
                 action.text = i18n("Remove from Favorites");
-                action.icon = "bookmark-remove";
+                action.icon = "list-remove";
                 action.actionId = "_kicker_favorite_remove";
             } else if (favoriteModel.maxFavorites == -1 || favoriteModel.count < favoriteModel.maxFavorites) {
                 action.text = i18n("Add to Favorites");
@@ -152,7 +152,7 @@ function createFavoriteActions(i18n, favoriteModel, favoriteId) {
 
         if (favoriteModel.isFavorite(favoriteId)) {
             action.text = i18n("Remove from Favorites");
-            action.icon = "bookmark-remove";
+            action.icon = "list-remove";
             action.actionId = "_kicker_favorite_remove";
         } else if (favoriteModel.maxFavorites == -1 || favoriteModel.count < favoriteModel.maxFavorites) {
             action.text = i18n("Add to Favorites");
@@ -161,6 +161,7 @@ function createFavoriteActions(i18n, favoriteModel, favoriteId) {
         } else {
             return null;
         }
+
         action.actionArgument = { favoriteModel: favoriteModel, favoriteId: favoriteId };
 
         return [action];
