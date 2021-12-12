@@ -279,7 +279,7 @@ PlasmaCore.Dialog {
             source: kuser.faceIconUrl.toString() || "user-identity"
             cache: false
             visible: source !== "" && plasmoid.configuration.viewUser
-            height: plasmoid.configuration.viewUser ? units.gridUnit * 5 : units.iconSizes.smallMedium  // FIXME
+            height: plasmoid.configuration.viewUser ? units.gridUnit * plasmoid.configuration.avatarSize : units.iconSizes.smallMedium  // FIXME
             width: height
             sourceSize.width: width
             sourceSize.height: height
@@ -305,12 +305,11 @@ PlasmaCore.Dialog {
                 acceptedButtons: Qt.LeftButton
                 cursorShape: Qt.PointingHandCursor
                 onClicked: {
-                    KCMShell.open("user_manager")
+                    KCMShell.open("user_manager") // change this with `kcm_users` later on
                 }
                 visible: KCMShell.authorize("user_manager.desktop").length > 0
             }
         }
-
 
         PlasmaComponents.TextField {
             id: searchField

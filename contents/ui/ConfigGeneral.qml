@@ -51,6 +51,8 @@ Item {
 
     property alias cfg_viewUser: viewUser.checked
     property alias cfg_labels2lines: labels2lines.checked
+    property alias cfg_smallerIcons: smallerIcons.checked
+    property alias cfg_avatarSize: avatarSize.value
     property alias cfg_displayPosition: displayPosition.currentIndex
 
     ColumnLayout {
@@ -233,6 +235,25 @@ Item {
                 CheckBox {
                     id: labels2lines
                     text: i18n("Show labels in two lines")
+                }
+                CheckBox {
+                    id: smallerIcons
+                    text: i18n("Reduce icon size")
+                }
+                RowLayout{
+                    Layout.fillWidth: true
+
+                    // /flat: true
+
+                    SpinBox{
+                        id: avatarSize
+                        minimumValue: 1
+                        maximumValue: 5
+                    }
+                    Label {
+                        Layout.leftMargin: units.smallSpacing
+                        text: i18n("Avatar Size")
+                    }
                 }
             }
         }

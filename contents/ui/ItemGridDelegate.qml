@@ -51,12 +51,13 @@ Item {
     }
 
     function actionTriggered(actionId, actionArgument) {
-        var close = (Tools.triggerAction(GridView.view.model, model.index, actionId, actionArgument) === true);
+        var close = (Tools.triggerAction(plasmoid, GridView.view.model, model.index, actionId, actionArgument) === true);
         if (close) root.toggle();
     }
 
+
     Item{
-        height: iconSize + units.gridUnit * 2 + units.smallSpacing
+        height: plasmoid.configuration.smallerIcons ? iconSize + units.gridUnit : iconSize + units.gridUnit * 2 + units.smallSpacing
         width: parent.width
         anchors.centerIn: parent
 
@@ -66,7 +67,7 @@ Item {
                 top: parent.top
                 horizontalCenter: parent.horizontalCenter
             }
-            width: units.iconSizes.large
+            width: plasmoid.configuration.smallerIcons ? units.iconSizes.medium : units.iconSizes.large;
             height: width
             colorGroup: PlasmaCore.Theme.ComplementaryColorGroup
             animated: false

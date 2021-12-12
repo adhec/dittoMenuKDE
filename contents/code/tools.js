@@ -168,7 +168,7 @@ function createFavoriteActions(i18n, favoriteModel, favoriteId) {
     }
 }
 
-function triggerAction(model, index, actionId, actionArgument) {
+function triggerAction(plasmoid, model, index, actionId, actionArgument) {
     function startsWith(txt, needle) {
         return txt.substr(0, needle.length) === needle;
     }
@@ -181,12 +181,13 @@ function triggerAction(model, index, actionId, actionArgument) {
     var closeRequested = model.trigger(index, actionId, actionArgument);
 
     if (closeRequested) {
+        plasmoid.expanded = false;
+
         return true;
     }
 
     return false;
 }
-
 
 function handleFavoriteAction(actionId, actionArgument) {
     var favoriteId = actionArgument.favoriteId;
@@ -198,24 +199,33 @@ function handleFavoriteAction(actionId, actionArgument) {
         return null;
     }
 
-    if (actionId == "_kicker_favorite_remove") {
-        console.log("Removing from all activities");
-        favoriteModel.removeFavorite(favoriteId);
-    } else if (actionId == "_kicker_favorite_add") {
-        console.log("Adding to global activity");
-        favoriteModel.addFavorite(favoriteId);
-    } else if (actionId == "_kicker_favorite_remove_from_activity") {
-        console.log("Removing from a specific activity");
-        favoriteModel.removeFavoriteFrom(favoriteId, actionArgument.favoriteActivity);
+    if ("initForClient" in favoriteModel) {
+        if (actionId == "_kicker_favorite_remove") {
+            console.log("Removing from all activities");
+            favoriteModel.removeFavoriteFrom(favoriteId, ":any");
 
-    } else if (actionId == "_kicker_favorite_add_to_activity") {
-        console.log("Adding to another activity");
-        favoriteModel.addFavoriteTo(favoriteId, actionArgument.favoriteActivity);
+        } else if (actionId == "_kicker_favorite_add") {
+            console.log("Adding to global activity");
+            favoriteModel.addFavoriteTo(favoriteId, ":global");
 
-    } else if (actionId == "_kicker_favorite_set_to_activity") {
-        console.log("Removing the item from the favourites, and re-adding it just to be on a specific activity");
-        favoriteModel.setFavoriteOn(favoriteId, actionArgument.favoriteActivity);
+        } else if (actionId == "_kicker_favorite_remove_from_activity") {
+            console.log("Removing from a specific activity");
+            favoriteModel.removeFavoriteFrom(favoriteId, actionArgument.favoriteActivity);
 
+        } else if (actionId == "_kicker_favorite_add_to_activity") {
+            console.log("Adding to another activity");
+            favoriteModel.addFavoriteTo(favoriteId, actionArgument.favoriteActivity);
+
+        } else if (actionId == "_kicker_favorite_set_to_activity") {
+            console.log("Removing the item from the favourites, and re-adding it just to be on a specific activity");
+            favoriteModel.setFavoriteOn(favoriteId, actionArgument.favoriteActivity);
+
+        }
+    } else {
+        if (actionId == "_kicker_favorite_remove") {
+            favoriteModel.removeFavorite(favoriteId);
+        } else if (actionId == "_kicker_favorite_add") {
+            favoriteModel.addFavorite(favoriteId);
+        }
     }
 }
-
