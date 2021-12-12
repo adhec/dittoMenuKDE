@@ -305,7 +305,7 @@ PlasmaCore.Dialog {
                 acceptedButtons: Qt.LeftButton
                 cursorShape: Qt.PointingHandCursor
                 onClicked: {
-                    KCMShell.open("user_manager") // change this with `kcm_users` later on
+                    KCMShell.open("kcm_users")
                 }
                 visible: KCMShell.authorize("user_manager.desktop").length > 0
             }
