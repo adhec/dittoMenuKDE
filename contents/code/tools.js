@@ -168,7 +168,7 @@ function createFavoriteActions(i18n, favoriteModel, favoriteId) {
     }
 }
 
-function triggerAction(model, index, actionId, actionArgument) {
+function triggerAction(plasmoid, model, index, actionId, actionArgument) {
     function startsWith(txt, needle) {
         return txt.substr(0, needle.length) === needle;
     }
@@ -181,6 +181,8 @@ function triggerAction(model, index, actionId, actionArgument) {
     var closeRequested = model.trigger(index, actionId, actionArgument);
 
     if (closeRequested) {
+        plasmoid.expanded = false;
+
         return true;
     }
 
