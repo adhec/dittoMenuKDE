@@ -78,15 +78,15 @@ function createFavoriteActions(i18n, favoriteModel, favoriteId) {
                 !(linkedActivities.indexOf(":global") === -1);
 
             actions.push({
-                text      : i18n("On All Activities"),
-                checkable : true,
+                text: i18n("On All Activities"),
+                checkable: true,
 
-                actionId  : linkedToAllActivities ?
-                                "_kicker_favorite_remove_from_activity" :
-                                "_kicker_favorite_set_to_activity",
-                checked   : linkedToAllActivities,
+                actionId: linkedToAllActivities ?
+                    "_kicker_favorite_remove_from_activity" :
+                    "_kicker_favorite_set_to_activity",
+                checked: linkedToAllActivities,
 
-                actionArgument : {
+                actionArgument: {
                     favoriteModel: favoriteModel,
                     favoriteId: favoriteId,
                     favoriteActivity: ""
@@ -96,32 +96,32 @@ function createFavoriteActions(i18n, favoriteModel, favoriteId) {
 
             // Adding items for each activity separately
 
-            var addActivityItem = function(activityId, activityName) {
+            var addActivityItem = function (activityId, activityName) {
                 var linkedToThisActivity =
                     !(linkedActivities.indexOf(activityId) === -1);
 
                 actions.push({
-                    text      : activityName,
-                    checkable : true,
-                    checked   : linkedToThisActivity && !linkedToAllActivities,
+                    text: activityName,
+                    checkable: true,
+                    checked: linkedToThisActivity && !linkedToAllActivities,
 
-                    actionId :
+                    actionId:
                         // If we are on all activities, and the user clicks just one
                         // specific activity, unlink from everything else
                         linkedToAllActivities ? "_kicker_favorite_set_to_activity" :
 
-                        // If we are linked to the current activity, just unlink from
-                        // that single one
-                        linkedToThisActivity ? "_kicker_favorite_remove_from_activity" :
+                            // If we are linked to the current activity, just unlink from
+                            // that single one
+                            linkedToThisActivity ? "_kicker_favorite_remove_from_activity" :
 
-                        // Otherwise, link to this activity, but do not unlink from
-                        // other ones
-                        "_kicker_favorite_add_to_activity",
+                                // Otherwise, link to this activity, but do not unlink from
+                                // other ones
+                                "_kicker_favorite_add_to_activity",
 
-                    actionArgument : {
-                        favoriteModel    : favoriteModel,
-                        favoriteId       : favoriteId,
-                        favoriteActivity : activityId
+                    actionArgument: {
+                        favoriteModel: favoriteModel,
+                        favoriteId: favoriteId,
+                        favoriteActivity: activityId
                     }
                 });
             };
@@ -137,14 +137,14 @@ function createFavoriteActions(i18n, favoriteModel, favoriteId) {
 
             // Adding the items for each activity
 
-            activities.forEach(function(activityId) {
+            activities.forEach(function (activityId) {
                 addActivityItem(activityId, favoriteModel.activityNameForId(activityId));
             });
 
             return [{
-                text       : i18n("Show In Favorites"),
-                icon       : "favorite",
-                subActions : actions
+                text: i18n("Show In Favorites"),
+                icon: "favorite",
+                subActions: actions
             }];
         }
     } else {
@@ -189,6 +189,7 @@ function triggerAction(plasmoid, model, index, actionId, actionArgument) {
     return false;
 }
 
+
 function handleFavoriteAction(actionId, actionArgument) {
     var favoriteId = actionArgument.favoriteId;
     var favoriteModel = actionArgument.favoriteModel;
@@ -199,33 +200,24 @@ function handleFavoriteAction(actionId, actionArgument) {
         return null;
     }
 
-    if ("initForClient" in favoriteModel) {
-        if (actionId == "_kicker_favorite_remove") {
-            console.log("Removing from all activities");
-            favoriteModel.removeFavoriteFrom(favoriteId, ":any");
+    if (actionId == "_kicker_favorite_remove") {
+        console.log("Removing from all activities");
+        favoriteModel.removeFavorite(favoriteId);
+    } else if (actionId == "_kicker_favorite_add") {
+        console.log("Adding to global activity");
+        favoriteModel.addFavorite(favoriteId);
+    } else if (actionId == "_kicker_favorite_remove_from_activity") {
+        console.log("Removing from a specific activity");
+        favoriteModel.removeFavoriteFrom(favoriteId, actionArgument.favoriteActivity);
 
-        } else if (actionId == "_kicker_favorite_add") {
-            console.log("Adding to global activity");
-            favoriteModel.addFavoriteTo(favoriteId, ":global");
+    } else if (actionId == "_kicker_favorite_add_to_activity") {
+        console.log("Adding to another activity");
+        favoriteModel.addFavoriteTo(favoriteId, actionArgument.favoriteActivity);
 
-        } else if (actionId == "_kicker_favorite_remove_from_activity") {
-            console.log("Removing from a specific activity");
-            favoriteModel.removeFavoriteFrom(favoriteId, actionArgument.favoriteActivity);
+    } else if (actionId == "_kicker_favorite_set_to_activity") {
+        console.log("Removing the item from the favourites, and re-adding it just to be on a specific activity");
+        favoriteModel.setFavoriteOn(favoriteId, actionArgument.favoriteActivity);
 
-        } else if (actionId == "_kicker_favorite_add_to_activity") {
-            console.log("Adding to another activity");
-            favoriteModel.addFavoriteTo(favoriteId, actionArgument.favoriteActivity);
-
-        } else if (actionId == "_kicker_favorite_set_to_activity") {
-            console.log("Removing the item from the favourites, and re-adding it just to be on a specific activity");
-            favoriteModel.setFavoriteOn(favoriteId, actionArgument.favoriteActivity);
-
-        }
-    } else {
-        if (actionId == "_kicker_favorite_remove") {
-            favoriteModel.removeFavorite(favoriteId);
-        } else if (actionId == "_kicker_favorite_add") {
-            favoriteModel.addFavorite(favoriteId);
-        }
     }
 }
+
