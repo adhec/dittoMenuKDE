@@ -143,6 +143,11 @@ Item {
         onFavoriteSystemActionsChanged: {
             systemFavorites.favorites = plasmoid.configuration.favoriteSystemActions;
         }
+
+        onHiddenApplicationsChanged: {
+            // Force refresh on hidden
+            rootModel.refresh();
+        }
     }
 
     Kicker.RunnerModel {
@@ -153,7 +158,20 @@ Item {
         deleteWhenEmpty: false
 
         mergeResults: true
-        runners: plasmoid.configuration.useExtraRunners ? new Array("services").concat(plasmoid.configuration.extraRunners) : "services"
+        //runners: plasmoid.configuration.useExtraRunners ? new Array("services").concat(plasmoid.configuration.extraRunners) : "services"
+
+        runners: {
+            var runners = new Array("services", "krunner_systemsettings");
+
+            if (plasmoid.configuration.useExtraRunners) {
+                runners = runners.concat(new Array("desktopsessions", "PowerDevil",
+                     "calculator", "unitconverter"));
+
+                runners = runners.concat(plasmoid.configuration.extraRunners);
+            }
+
+            return runners;
+        }
         
     }
 

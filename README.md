@@ -17,4 +17,6 @@ Share your ❤️ Buy me a ☕
 Have fun ;)
 
 
+## Translating
 
+See the [package/translate](package/translate) folder for instructions on translating.
