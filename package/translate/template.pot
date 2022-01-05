@@ -1,5 +1,5 @@
 # Translation of dittomenu in LANGUAGE
-# Copyright (C) 2021
+# Copyright (C) 2022
 # This file is distributed under the same license as the dittomenu package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dittomenu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-13 17:38-0500\n"
+"POT-Creation-Date: 2022-01-04 22:37-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
