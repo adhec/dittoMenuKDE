@@ -16,35 +16,35 @@ msgstr ""
 
 #: ../metadata.desktop
 msgid "Ditto Menu"
-msgstr ""
+msgstr "Ditto 메뉴"
 
 #: ../metadata.desktop
 msgid "A configurable launcher menu"
-msgstr ""
+msgstr "프로그램 실행기"
 
 #: ../contents/code/tools.js
 msgid "Remove from Favorites"
-msgstr ""
+msgstr "즐겨찾기에서 제거"
 
 #: ../contents/code/tools.js
 msgid "Add to Favorites"
-msgstr ""
+msgstr "즐겨찾기에 추가"
 
 #: ../contents/code/tools.js
 msgid "On All Activities"
-msgstr ""
+msgstr "모든 활동"
 
 #: ../contents/code/tools.js
 msgid "On The Current Activity"
-msgstr ""
+msgstr "현재 활동만"
 
 #: ../contents/code/tools.js
 msgid "Show In Favorites"
-msgstr ""
+msgstr "즐겨찾기에 표시"
 
 #: ../contents/config/config.qml
 msgid "General"
-msgstr ""
+msgstr "일반"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Icon:"
@@ -53,12 +53,12 @@ msgstr "아이콘:"
 #: ../contents/ui/ConfigGeneral.qml
 msgctxt "@item:inmenu Open icon chooser dialog"
 msgid "Choose..."
-msgstr ""
+msgstr "선택..."
 
 #: ../contents/ui/ConfigGeneral.qml
 msgctxt "@item:inmenu Reset icon to default"
 msgid "Clear Icon"
-msgstr ""
+msgstr "아이콘 초기화"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Behavior"
@@ -86,7 +86,7 @@ msgstr "설명 (이름)"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Show favorites first"
-msgstr ""
+msgstr "즐겨찾기 먼저 표시"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Menu position:"
@@ -102,7 +102,7 @@ msgstr "가운데"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Center bottom"
-msgstr ""
+msgstr "가운데 밑"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Search"
@@ -134,11 +134,11 @@ msgstr "행 개수"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Unhide all hidden applications"
-msgstr ""
+msgstr "모든 숨겨진 프로그램 복구"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Unhidden!"
-msgstr ""
+msgstr "복구됨!"
 
 #: ../contents/ui/main.qml
 msgid "Edit Applications..."
@@ -151,7 +151,7 @@ msgstr "시스템 설정"
 #: ../contents/ui/MenuRepresentation.qml
 msgctxt "@action"
 msgid "Lock Screen"
-msgstr ""
+msgstr "잠금"
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "Search ..."
@@ -161,7 +161,7 @@ msgstr "검색..."
 #~ msgstr "가운데 밑"
 
 #~ msgid "Lock Screen"
-#~ msgstr "화면 잠금"
+#~ msgstr "잠금"
 
 #~ msgid "Leave ..."
 #~ msgstr "떠나기..."
