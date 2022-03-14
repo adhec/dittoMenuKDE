@@ -18,6 +18,7 @@ X-KDE-PluginInfo-Category=Application Launchers
 X-KDE-PluginInfo-Depends=
 X-KDE-PluginInfo-License=GPL v2+
 X-KDE-PluginInfo-EnabledByDefault=true
+X-KDE-PluginInfo-Website=https://store.kde.org/p/1312669/
 
 Name[ko]=Ditto 메뉴
 Name[nl]=Ditto-menu

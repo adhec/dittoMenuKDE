@@ -66,7 +66,7 @@ Item {
                 top: parent.top
                 horizontalCenter: parent.horizontalCenter
             }
-            width: units.iconSizes.large
+            width: root.iconSize
             height: width
             colorGroup: PlasmaCore.Theme.ComplementaryColorGroup
             animated: false

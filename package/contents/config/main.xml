@@ -9,11 +9,11 @@
     <entry name="displayPosition" type="Enum">
     <label>Position.</label>
     <choices name="Settings::displayPosition">
-      <choice name="Code" />
-      <choice name="FullText" />
-      <choice name="UTCOffset" />
+      <choice name="Default" />
+      <choice name="Center" />
+      <choice name="CenterBottom" />
     </choices>
-    <default>Code</default>
+    <default>Center</default>
     </entry>
 
     <entry name="icon" type="String">
@@ -38,7 +38,7 @@
     </entry>
 
     <entry name="numberColumns" type="Int">
-    <default>7</default>
+    <default>6</default>
     </entry>
 
     <entry name="numberRows" type="Int">

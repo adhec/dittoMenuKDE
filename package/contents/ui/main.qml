@@ -200,6 +200,15 @@ Item {
         imagePath: "widgets/panel-background"
     }
 
+    PlasmaCore.FrameSvgItem {
+        id : backgroundSvg
+
+        visible: false
+
+        imagePath: "dialogs/background"
+    }
+
+
     PlasmaComponents.Label {
         id: toolTipDelegate
 
@@ -218,8 +227,7 @@ Item {
     Component.onCompleted: {
         plasmoid.setAction("menuedit", i18n("Edit Applications..."));
 
-        rootModel.refreshed.connect(reset);
-
-        dragHelper.dropped.connect(resetDragSource);
+        //rootModel.refreshed.connect(reset);
+        //dragHelper.dropped.connect(resetDragSource);
     }
 }

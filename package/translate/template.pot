@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dittomenu\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-04 22:37-0500\n"
+"Report-Msgid-Bugs-To: https://store.kde.org/p/1312669/\n"
+"POT-Creation-Date: 2022-03-07 18:58-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -152,10 +152,18 @@ msgid "System Preferences"
 msgstr ""
 
 #: ../contents/ui/MenuRepresentation.qml
+msgid "User Home"
+msgstr ""
+
+#: ../contents/ui/MenuRepresentation.qml
 msgctxt "@action"
 msgid "Lock Screen"
 msgstr ""
 
 #: ../contents/ui/MenuRepresentation.qml
-msgid "Search ..."
+msgid "Hi, "
+msgstr ""
+
+#: ../contents/ui/MenuRepresentation.qml
+msgid "Type here to search ..."
 msgstr ""
