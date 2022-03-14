@@ -730,8 +730,11 @@ Item{
 
         visible: root.visible
 
-        x: root.x + root.width/2 - sizeImage/2
-        y: root.y
+        onVisibleChanged: {
+            x = root.x + root.width/2 - sizeImage/2
+            y = root.y
+        }
+
 
         objectName: "popupWindowIcon"
         flags: Qt.WindowStaysOnTopHint
