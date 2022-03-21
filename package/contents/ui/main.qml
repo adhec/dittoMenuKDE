@@ -70,8 +70,8 @@ Item {
         showSeparators: false
         appletInterface: plasmoid
 
-        paginate: true
-        pageSize: plasmoid.configuration.numberColumns *  plasmoid.configuration.numberRows
+        //paginate: true //TODO search bug origin
+        //pageSize: plasmoid.configuration.numberColumns *  plasmoid.configuration.numberRows //TODO search bug origin
 
         showAllApps: true
         showRecentApps: false
@@ -80,24 +80,23 @@ Item {
         showPowerSession: false
 
         onFavoritesModelChanged: {
-            if ("initForClient" in favoritesModel) {
-                favoritesModel.initForClient("org.kde.plasma.kicker.favorites.instance-" + plasmoid.id)
+           // if ("initForClient" in favoritesModel) {
+           //     favoritesModel.initForClient("org.kde.plasma.kicker.favorites.instance-" + plasmoid.id)
 
-                if (!plasmoid.configuration.favoritesPortedToKAstats) {
-                    favoritesModel.portOldFavorites(plasmoid.configuration.favoriteApps);
-                    plasmoid.configuration.favoritesPortedToKAstats = true;
-                }
-            } else {
-                favoritesModel.favorites = plasmoid.configuration.favoriteApps;
-            }
-
-            favoritesModel.maxFavorites = pageSize;
+           //     if (!plasmoid.configuration.favoritesPortedToKAstats) {
+           //         favoritesModel.portOldFavorites(plasmoid.configuration.favoriteApps);
+           //         plasmoid.configuration.favoritesPortedToKAstats = true;
+           //     }
+           // } else {
+           //     favoritesModel.favorites = plasmoid.configuration.favoriteApps;
+           // }
+           // favoritesModel.maxFavorites = pageSize;
         }
 
         onSystemFavoritesModelChanged: {
-            systemFavoritesModel.enabled = false;
-            systemFavoritesModel.favorites = plasmoid.configuration.favoriteSystemActions;
-            systemFavoritesModel.maxFavorites = 8;
+            //systemFavoritesModel.enabled = false;
+            //systemFavoritesModel.favorites = plasmoid.configuration.favoriteSystemActions;
+            //systemFavoritesModel.maxFavorites = 8;
         }
 
         Component.onCompleted: {
@@ -146,7 +145,7 @@ Item {
 
         onHiddenApplicationsChanged: {
             // Force refresh on hidden
-            rootModel.refresh();
+            //rootModel.refresh();
         }
     }
 

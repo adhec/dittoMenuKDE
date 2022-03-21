@@ -36,7 +36,7 @@ import QtGraphicalEffects 1.0
 import org.kde.kquickcontrolsaddons 2.0
 import org.kde.plasma.private.quicklaunch 1.0
 
-import QtQuick.Controls 2.1
+import QtQuick.Controls 2.12
 
 Item{
 
@@ -62,16 +62,19 @@ Item{
                                                highlightItemSvg.margins.left + highlightItemSvg.margins.right))
         property bool searching: (searchField.text != "")
 
+        property bool showFavorites
 
         onVisibleChanged: {
             reset();
             if (visible) {
+                root.showFavorites = plasmoid.configuration.showFavoritesFirst
                 var pos = popupPosition(width, height);
                 x = pos.x;
                 y = pos.y;
                 requestActivate();
                 reset();
                 animation1.start()
+
             }else{
                 focusScope.opacity = 0
             }
@@ -89,26 +92,18 @@ Item{
             y = pos.y;
         }
 
-        onSearchingChanged: {
-            if (root.searching) {
-                pageList.model = runnerModel;
-                paginationBar.model = runnerModel;
-            } else {
-                reset();
-            }
+        function toggle(){
+            main.visible =  !main.visible
         }
 
-
         function reset() {
-
-            if (!root.searching) {
-                pageList.model = rootModel.modelForRow(0);
-                paginationBar.model = rootModel.modelForRow(0);
-            }
             searchField.text = "";
-            pageListScrollArea.focus = true;
-            pageList.currentIndex = plasmoid.configuration.showFavoritesFirst ? 0 : 1;
-            //pageList.currentItem.itemGrid.currentIndex = -1;
+            if(showFavorites)
+                globalFavoritesGrid.tryActivate(0,0)
+            else
+                mainColumn.visibleGrid.tryActivate(0,0)
+
+
         }
 
         function popupPosition(width, height) {
@@ -121,7 +116,7 @@ Item{
                                  screenAvail.height);
 
 
-            var offset = units.largeSpacing * 0.5;
+            var offset = units.smallSpacing
 
             // Fall back to bottom-left of screen area when the applet is on the desktop or floating.
             var x = offset;
@@ -165,18 +160,17 @@ Item{
                 y = (appletTopLeft.y < vertMidPoint) ? screen.y + offset : (screen.y + screen.height) - height - offset;
                 y = y + (plasmoid.configuration.viewUser ? main.sizeImage*0.5 : 0);
             }
-
             return Qt.point(x, y);
         }
-
 
         FocusScope {
 
             id: focusScope
-            Layout.minimumWidth:  (root.cellSize *  plasmoid.configuration.numberColumns)
-            Layout.maximumWidth:  (root.cellSize *  plasmoid.configuration.numberColumns)
-            Layout.minimumHeight: (root.cellSize *  plasmoid.configuration.numberRows) + searchField.implicitHeight + paginationBar.height + (plasmoid.configuration.viewUser ? main.sizeImage*0.5 : units.largeSpacing * 1.5 ) +  units.largeSpacing * 5
-            Layout.maximumHeight: (root.cellSize *  plasmoid.configuration.numberRows) + searchField.implicitHeight + paginationBar.height + (plasmoid.configuration.viewUser ? main.sizeImage*0.5 : units.largeSpacing * 1.5 ) +  units.largeSpacing * 5
+            Layout.minimumWidth:  (root.cellSize *  plasmoid.configuration.numberColumns)+ units.largeSpacing
+            Layout.maximumWidth:  (root.cellSize *  plasmoid.configuration.numberColumns)+ units.largeSpacing
+            Layout.minimumHeight: (root.cellSize *  plasmoid.configuration.numberRows) + searchField.implicitHeight + (plasmoid.configuration.viewUser ? main.sizeImage*0.5 : units.largeSpacing * 1.5 ) +  units.largeSpacing * 6
+            Layout.maximumHeight: (root.cellSize *  plasmoid.configuration.numberRows) + searchField.implicitHeight + (plasmoid.configuration.viewUser ? main.sizeImage*0.5 : units.largeSpacing * 1.5 ) +  units.largeSpacing * 6
+
 
             focus: true
             opacity: 0
@@ -239,21 +233,13 @@ Item{
             ActionMenu {
                 id: actionMenu
                 onActionClicked: visualParent.actionTriggered(actionId, actionArgument)
-                onClosed: {
-                    if (pageList.currentItem) {
-                        pageList.currentItem.itemGrid.currentIndex = -1;
-                    }
-                }
             }
-
-
-
 
             PlasmaCore.FrameSvgItem {
                 id : headingSvg
                 width: parent.width + backgroundSvg.margins.right + backgroundSvg.margins.left
-                height:  root.cellSize * plasmoid.configuration.numberRows  + paginationBar.height + units.largeSpacing * 2 + backgroundSvg.margins.bottom - 1
-                y: pageListScrollArea.y - units.largeSpacing
+                height:  root.cellSize * plasmoid.configuration.numberRows  + units.largeSpacing * 2 + backgroundSvg.margins.bottom - 1 //<>+ paginationBar.height
+                y: globalFavoritesGrid.y - units.largeSpacing
                 x: - backgroundSvg.margins.left
                 imagePath: "widgets/plasmoidheading"
                 prefix: "footer"
@@ -318,7 +304,6 @@ Item{
                     topMargin: units.largeSpacing
                     horizontalCenter: parent.horizontalCenter
                 }
-                horizontalAlignment: Text.AlignHCenter
                 level: 1
                 color: theme.textColor
                 text: i18n("Hi, ")+ kuser.fullName
@@ -326,370 +311,241 @@ Item{
                 visible: plasmoid.configuration.viewUser
             }
 
-            PlasmaComponents3.TextField {
-                id: searchField
+            RowLayout {
+                id: rowSearchField
                 anchors{
                     top: plasmoid.configuration.viewUser ? parent.top : rowTop.bottom
-                    topMargin: plasmoid.configuration.viewUser ? units.largeSpacing*2  + sizeImage/2 : units.largeSpacing/2
+                    topMargin: plasmoid.configuration.viewUser ? units.largeSpacing*3  + sizeImage/2 : units.largeSpacing/2
                     left: parent.left
                     right: parent.right
-                    leftMargin:  units.largeSpacing * 3
-                    rightMargin: units.largeSpacing * 3
+                    margins: units.smallSpacing
                 }
 
-                width: parent.width - units.iconSizes.large
-                placeholderText: i18n("Type here to search ...")
-                leftPadding: units.largeSpacing + units.iconSizes.small
-                text: ""
-                //clearButtonShown: true  // TODO: kubuntu 20.04
-                onTextChanged: {
-                    runnerModel.query = text;
+                Item{
+                    Layout.fillWidth: true
                 }
+                PlasmaComponents3.TextField {
+                    id: searchField
+                    Layout.fillWidth: true
+                    placeholderText: i18n("Type here to search ...")
+                    leftPadding: units.largeSpacing + units.iconSizes.small
+                    text: ""
+                    //clearButtonShown: true  // TODO: kubuntu 20.04
+                    onTextChanged: {
+                        runnerModel.query = text;
+                    }
 
-                Keys.onPressed: {
-                    if (event.key == Qt.Key_Down) {
-                        event.accepted = true;
-                        pageList.currentItem.itemGrid.tryActivate(0, 0);
-                    } else if (event.key == Qt.Key_Right) {
-                        if (cursorPosition == length) {
+                    Keys.onPressed: {
+                        if (event.key == Qt.Key_Down || event.key == Qt.Key_Tab || event.key == Qt.Key_Backtab) {
                             event.accepted = true;
-
-                            if (pageList.currentItem.itemGrid.currentIndex == -1) {
-                                pageList.currentItem.itemGrid.tryActivate(0, 0);
-                            } else {
-                                pageList.currentItem.itemGrid.tryActivate(0, 1);
-                            }
-                        }
-                    } else if (event.key == Qt.Key_Return || event.key == Qt.Key_Enter) {
-                        if (text != "" && pageList.currentItem.itemGrid.count > 0) {
-                            event.accepted = true;
-                            pageList.currentItem.itemGrid.tryActivate(0, 0);
-                            pageList.currentItem.itemGrid.model.trigger(0, "", null);
-                            root.visible = false;
-                        }
-                    } else if (event.key == Qt.Key_Tab) {
-                        event.accepted = true;
-                    } else if (event.key == Qt.Key_Backtab) {
-                        event.accepted = true;
-                        if (!root.searching) {
-                            filterList.forceActiveFocus();
+                            if(root.showFavorites)
+                                globalFavoritesGrid.tryActivate(0,0)
+                            else
+                                mainColumn.visibleGrid.tryActivate(0,0)
                         }
                     }
+
+                    function backspace() {
+                        if (!root.visible) {
+                            return;
+                        }
+                        focus = true;
+                        text = text.slice(0, -1);
+                    }
+
+                    function appendText(newText) {
+                        if (!root.visible) {
+                            return;
+                        }
+                        focus = true;
+                        text = text + newText;
+                    }
+                    PlasmaCore.IconItem {
+                        source: 'search'
+                        anchors {
+                            left: searchField.left
+                            verticalCenter: searchField.verticalCenter
+                            leftMargin: units.smallSpacing * 2
+
+                        }
+                        height: units.iconSizes.small
+                        width: height
+                    }
+
                 }
 
-                function backspace() {
-                    if (!root.visible) {
-                        return;
-                    }
-
-                    focus = true;
-                    text = text.slice(0, -1);
+                Item{
+                    Layout.fillWidth: true
                 }
 
-                function appendText(newText) {
-                    if (!root.visible) {
-                        return;
+                PlasmaComponents3.ToolButton {
+                    id: btnFavorites
+                    icon.name: 'favorites'
+                    flat: !root.showFavorites
+                    onClicked: {
+                        searchField.text = ""
+                        root.showFavorites = true
                     }
-                    focus = true;
-                    text = text + newText;
+
+                }
+                PlasmaComponents3.ToolButton {
+                    icon.name: "view-list-icons"
+                    flat: root.showFavorites
+                    onClicked: {
+                        searchField.text = ""
+                        root.showFavorites = false
+                        allAppsGrid.scrollBar.flickableItem.contentY = 0;
+                    }
+
                 }
             }
 
-            PlasmaCore.IconItem {
-                source: 'search'
+            //
+            //
+            //
+            //
+            //
+
+
+            ItemGridView {
+                id: globalFavoritesGrid
+                visible: (plasmoid.configuration.showFavoritesFirst || root.showFavorites ) && !root.searching && root.showFavorites
                 anchors {
-                    left: searchField.left
-                    verticalCenter: searchField.verticalCenter
-                    leftMargin: units.smallSpacing * 2
-
-                }
-                height: units.iconSizes.small
-                width: height
-            }
-
-
-            PlasmaExtras.ScrollArea {
-                id: pageListScrollArea
-
-                anchors {
-                    top: searchField.bottom
+                    top: rowSearchField.bottom
                     topMargin: units.largeSpacing * 2
                     left: parent.left
                     right: parent.right
-                    bottomMargin: units.smallSpacing
+
                 }
 
-                width: (root.cellSize * plasmoid.configuration.numberColumns)
-                height: (root.cellSize * plasmoid.configuration.numberRows)
-                focus: true;
-                frameVisible: false;
-                horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOff
-                verticalScrollBarPolicy: Qt.ScrollBarAlwaysOff
-
-                ListView {
-                    id: pageList
-
-                    anchors.fill: parent
-
-                    orientation: Qt.Horizontal
-                    snapMode: ListView.SnapOneItem
-                    highlightMoveDuration: 400
-                    highlightFollowsCurrentItem: true
-
-                    currentIndex: (root.searching || plasmoid.configuration.showFavoritesFirst) ? 0 : 1
-
-
-                    onCurrentIndexChanged: {
-                        positionViewAtIndex(currentIndex, ListView.Contain);
-                    }
-
-                    onCurrentItemChanged: {
-                        if (!currentItem) {
-                            return;
-                        }
-
-                        currentItem.itemGrid.focus = true;
-                    }
-
-                    onModelChanged: {
-                        //currentIndex = 0;
-                        currentIndex = (root.searching || plasmoid.configuration.showFavoritesFirst) ? 0 : 1;
-
-                    }
-
-
-
-                    onFlickingChanged: {
-                        if (!flicking) {
-                            var pos = mapToItem(contentItem, root.width / 2, root.height / 2);
-                            var itemIndex = indexAt(pos.x, pos.y);
-                            currentIndex = itemIndex;
-                        }
-                    }
-
-                    function cycle() {
-                        enabled = false;
-                        enabled = true;
-                    }
-
-                    function activateNextPrev(next) {
-                        if (next) {
-                            var newIndex = pageList.currentIndex + 1;
-
-                            if (newIndex == pageList.count) {
-                                newIndex = 0;
-                            }
-
-                            pageList.currentIndex = newIndex;
-                        } else {
-                            var newIndex = pageList.currentIndex - 1;
-
-                            if (newIndex < 0) {
-                                newIndex = (pageList.count - 1);
-                            }
-
-                            pageList.currentIndex = newIndex;
-                        }
-                    }
-
-                    delegate: Item {
-                        width:  root.cellSize * plasmoid.configuration.numberColumns
-                        height: root.cellSize * plasmoid.configuration.numberRows
-                        property Item itemGrid: gridView
-
-                        ItemGridView {
-                            id: gridView
-
-                            anchors.fill: parent
-
-                            cellWidth: root.cellSize
-                            cellHeight: root.cellSize
-
-                            horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOff
-                            verticalScrollBarPolicy: Qt.ScrollBarAlwaysOff
-                            iconSize: root.iconSize
-
-                            dragEnabled: (index == 0)
-
-                            model: root.searching ? runnerModel.modelForRow(index) : rootModel.modelForRow(0).modelForRow(index)
-
-                            onCurrentIndexChanged: {
-                                if (currentIndex != -1 && !root.searching) {
-                                    pageListScrollArea.focus = true;
-                                    focus = true;
-                                }
-                            }
-
-                            onCountChanged: {
-                                if (root.searching && index == 0) {
-                                    currentIndex = 0;
-                                }
-                            }
-
-                            onKeyNavUp: {
-                                currentIndex = -1;
-                                searchField.focus = true;
-                            }
-
-                            onKeyNavRight: {
-                                var newIndex = pageList.currentIndex + 1;
-                                var cRow = currentRow();
-
-                                if (newIndex === pageList.count) {
-                                    newIndex = 0;
-                                }
-
-                                pageList.currentIndex = newIndex;
-                                pageList.currentItem.itemGrid.tryActivate(cRow, 0);
-                            }
-
-                            onKeyNavLeft: {
-                                var newIndex = pageList.currentIndex - 1;
-                                var cRow = currentRow();
-
-                                if (newIndex < 0) {
-                                    newIndex = (pageList.count - 1);
-                                }
-
-                                pageList.currentIndex = newIndex;
-                                pageList.currentItem.itemGrid.tryActivate(cRow, 5);
-                            }
-                        }
-
-                        Kicker.WheelInterceptor {
-                            anchors.fill: parent
-                            z: 1
-
-                            property int wheelDelta: 0
-
-                            function scrollByWheel(wheelDelta, eventDelta) {
-                                // magic number 120 for common "one click"
-                                // See: http://qt-project.org/doc/qt-5/qml-qtquick-wheelevent.html#angleDelta-prop
-                                wheelDelta += eventDelta;
-
-                                var increment = 0;
-
-                                while (wheelDelta >= 120) {
-                                    wheelDelta -= 120;
-                                    increment++;
-                                }
-
-                                while (wheelDelta <= -120) {
-                                    wheelDelta += 120;
-                                    increment--;
-                                }
-
-                                while (increment != 0) {
-                                    pageList.activateNextPrev(increment < 0);
-                                    increment += (increment < 0) ? 1 : -1;
-                                }
-
-                                return wheelDelta;
-                            }
-
-                            onWheelMoved: {
-                                wheelDelta = scrollByWheel(wheelDelta, delta.y);
-                            }
-                        }
+                width: root.cellSize *  plasmoid.configuration.numberColumns  + units.largeSpacing
+                height: root.cellSize * plasmoid.configuration.numberRows
+                focus: true
+                cellWidth:   root.cellSize
+                cellHeight:  root.cellSize
+                iconSize:    root.iconSize
+                model: globalFavorites
+                dropEnabled: true
+                usesPlasmaTheme: true
+                verticalScrollBarPolicy: Qt.ScrollBarAlwaysOn
+                onKeyNavUp: searchField.focus = true
+                Keys.onPressed: {
+                    if (event.key == Qt.Key_Tab) {
+                        event.accepted = true;
+                        searchField.focus = true
                     }
                 }
             }
 
-            ListView {
-                id: paginationBar
+            //
+            //
+            //
+            //
+            //
+
+            Item{
+                id: mainGrids
+                visible: (!plasmoid.configuration.showFavoritesFirst && !root.showFavorites ) || root.searching || !root.showFavorites //TODO
 
                 anchors {
-                    horizontalCenter: parent.horizontalCenter
-                    bottom: parent.bottom
-                    bottomMargin: units.largeSpacing/2
+                    top: rowSearchField.bottom
+                    topMargin: units.largeSpacing * 2
+                    left: parent.left
+                    right: parent.right
+
                 }
+                width: root.cellSize *  plasmoid.configuration.numberColumns + units.largeSpacing
+                height: root.cellSize *  plasmoid.configuration.numberRows
 
-                width: 100//model.count * units.iconSizes.small
-                height: units.iconSizes.small
+                Item {
+                    id: mainColumn
+                    width: root.cellSize *  plasmoid.configuration.numberColumns + units.largeSpacing
+                    height: root.cellSize * plasmoid.configuration.numberRows
 
-                orientation: Qt.Horizontal
-                delegate: Item {
-                    width: units.iconSizes.small
-                    height: width
+                    property Item visibleGrid: allAppsGrid
 
-                    Rectangle {
-                        id: pageDelegate
-
-                        anchors {
-                            horizontalCenter: parent.horizontalCenter
-                            verticalCenter: parent.verticalCenter
+                    function tryActivate(row, col) {
+                        if (visibleGrid) {
+                            visibleGrid.tryActivate(row, col);
                         }
-
-                        width: parent.width  * 0.7
-                        height: width
-
-                        property bool isCurrent: (pageList.currentIndex == index)
-
-                        radius: width / 2
-
-                        color: theme.textColor
-                        opacity: 0.3
-
-                        Behavior on width { SmoothedAnimation { duration: units.longDuration; velocity: 0.01 } }
-                        Behavior on opacity { SmoothedAnimation { duration: units.longDuration; velocity: 0.01 } }
-
-                        states: [
-                            State {
-                                when: pageDelegate.isCurrent
-                                PropertyChanges { target: pageDelegate; width: parent.width * 0.5; }
-                                PropertyChanges { target: pageDelegate; opacity: 1 }
-                            }
-                        ]
                     }
 
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: pageList.currentIndex = index;
+                    ItemGridView {
+                        id: allAppsGrid
 
-                        property int wheelDelta: 0
+                        width: root.cellSize *  plasmoid.configuration.numberColumns + units.largeSpacing
+                        height: root.cellSize * plasmoid.configuration.numberRows
 
-                        function scrollByWheel(wheelDelta, eventDelta) {
-                            // magic number 120 for common "one click"
-                            // See: http://qt-project.org/doc/qt-5/qml-qtquick-wheelevent.html#angleDelta-prop
-                            wheelDelta += eventDelta;
-
-                            var increment = 0;
-
-                            while (wheelDelta >= 120) {
-                                wheelDelta -= 120;
-                                increment++;
+                        cellWidth:   root.cellSize
+                        cellHeight:  root.cellSize
+                        iconSize:    root.iconSize
+                        enabled: (opacity == 1) ? 1 : 0
+                        opacity: root.searching ? 0 : 1
+                        model:  rootModel.modelForRow(0);
+                        onOpacityChanged: {
+                            if (opacity == 1) {
+                                allAppsGrid.scrollBar.flickableItem.contentY = 0;
+                                mainColumn.visibleGrid = allAppsGrid;
                             }
-
-                            while (wheelDelta <= -120) {
-                                wheelDelta += 120;
-                                increment--;
-                            }
-
-                            while (increment != 0) {
-                                pageList.activateNextPrev(increment < 0);
-                                increment += (increment < 0) ? 1 : -1;
-                            }
-
-                            return wheelDelta;
                         }
+                        onKeyNavUp: searchField.focus = true
+                    }
 
-                        onWheel: {
-                            wheelDelta = scrollByWheel(wheelDelta, wheel.angleDelta.y);
+                    ItemMultiGridView {
+                        id: runnerGrid
+                        width: root.cellSize *  plasmoid.configuration.numberColumns + units.largeSpacing
+                        height: root.cellSize * plasmoid.configuration.numberRows
+                        z: (opacity == 1.0) ? 1 : 0
+                        aCellWidth: parent.width - units.largeSpacing
+                        aCellHeight: root.cellSize
+                        enabled: (opacity == 1.0) ? 1 : 0
+                        model: runnerModel
+                        grabFocus: true
+                        opacity: root.searching ? 1.0 : 0.0
+                        onOpacityChanged: {
+                            if (opacity == 1.0) {
+                                mainColumn.visibleGrid = runnerGrid;
+                            }
+                        }
+                        onKeyNavUp: searchField.focus = true
+                    }
+
+                    Keys.onPressed: {
+                        if (event.key == Qt.Key_Tab) {
+                            event.accepted = true;
+                            searchField.focus = true
+                        } else if (event.key == Qt.Key_Backspace) {
+                            event.accepted = true;
+                            if(root.searching)
+                                searchField.backspace();
+                            else
+                                searchField.focus = true
+                        } else if (event.key == Qt.Key_Escape) {
+                            event.accepted = true;
+                            if(root.searching){
+                                searchField.clear()
+                            } else {
+                                root.toggle()
+                            }
+                        } else if (event.text != "") {
+                            event.accepted = true;
+                            searchField.appendText(event.text);
                         }
                     }
                 }
             }
+
+
+
 
             Keys.onPressed: {
                 if (event.key == Qt.Key_Escape) {
                     event.accepted = true;
-
                     if (root.searching) {
                         reset();
                     } else {
                         root.visible = false;
                     }
-
                     return;
                 }
 
@@ -700,12 +556,7 @@ Item{
                 if (event.key == Qt.Key_Backspace) {
                     event.accepted = true;
                     searchField.backspace();
-                } else if (event.key == Qt.Key_Tab || event.key == Qt.Key_Backtab) {
-                    if (pageListScrollArea.focus == true && pageList.currentItem.itemGrid.currentIndex == -1) {
-                        event.accepted = true;
-                        pageList.currentItem.itemGrid.tryActivate(0, 0);
-                    }
-                } else if (event.text != "") {
+                }  else if (event.text != "") {
                     event.accepted = true;
                     searchField.appendText(event.text);
                 }
@@ -715,7 +566,6 @@ Item{
 
         Component.onCompleted: {
             kicker.reset.connect(reset);
-            dragHelper.dropped.connect(pageList.cycle);
             reset();
         }
     }
@@ -730,15 +580,13 @@ Item{
 
         visible: root.visible
 
-        onVisibleChanged: {
-            x = root.x + root.width/2 - sizeImage/2
-            y = root.y
-        }
-
+        y: root.y - sizeImage/2
+        x: root.x + root.width/2 - sizeImage/2
 
         objectName: "popupWindowIcon"
         flags: Qt.WindowStaysOnTopHint
         location: PlasmaCore.Types.Floating
+
         hideOnWindowDeactivate: false
         backgroundHints: PlasmaCore.Dialog.NoBackground
 
@@ -749,7 +597,7 @@ Item{
 
             Image {
                 id: iconUser
-                anchors.centerIn: parent
+                //anchors.centerIn: parent
                 source:  kuser.faceIconUrl.toString() || "user-identity"
                 cache: false
                 visible: source !== "" && plasmoid.configuration.viewUser
@@ -774,16 +622,16 @@ Item{
                     State {
                         name: "show"
                         when: dialog.visible
-                        PropertyChanges { target: dialog; y: root.y - sizeImage*0.5; opacity: 1}
+                        PropertyChanges { target: iconUser; y: 0; opacity: 1; }
                     },
                     State {
                         name: "hide"
                         when: !dialog.visible
-                        PropertyChanges { target: dialog; y: root.y ; opacity: 0 }
+                        PropertyChanges { target: iconUser; y: sizeImage/2 ; opacity: 0; }
                     }
                 ]
                 transitions: Transition {
-                    PropertyAnimation { properties: "y,opacity"; }
+                    PropertyAnimation { properties: "opacity,y"; easing.type: Easing.InOutQuad; }
                 }
                 MouseArea {
                     anchors.fill: parent

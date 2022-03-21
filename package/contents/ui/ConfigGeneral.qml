@@ -224,6 +224,7 @@ Item {
         GroupBox {
             Layout.fillWidth: true
             //title: i18n("Show user icon")
+            visible: false // TODO
             flat: true
             ColumnLayout {
                 CheckBox {

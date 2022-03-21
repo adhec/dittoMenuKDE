@@ -75,15 +75,12 @@
     <entry name="removeApplicationCommand" type="String">
       <default>muon-discover --application</default>
     </entry>
-
     <entry name="showAtCenter" type="Bool">
        <default>true</default>
-   </entry>
-
+   </entry>   
     <entry name="showFavoritesFirst" type="Bool">
        <default>false</default>
    </entry>
-
     <entry name="favoritesPortedToKAstats" type="Bool">
       <label>Are the favorites ported to use KActivitiesStats to allow per-activity favorites</label>
       <default>false</default>
@@ -92,6 +89,5 @@
     <entry name="viewUser" type="Bool">
     <default>true</default>
     </entry>
-
   </group>
 </kcfg>

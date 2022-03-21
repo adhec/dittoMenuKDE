@@ -66,7 +66,6 @@ Item {
 
     Connections {
         target: units.iconSizeHints
-
         onPanelChanged: updateSizeHints()
     }
 
