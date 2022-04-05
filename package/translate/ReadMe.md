@@ -38,3 +38,4 @@ Or if you know how to make a pull request
 | Template |      37 |       |
 | ko       |   34/37 |   91% |
 | nl       |   34/37 |   91% |
+| pl       |   36/37 |   97% |
