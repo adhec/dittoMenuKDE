@@ -200,6 +200,14 @@ Item {
     }
 
     PlasmaCore.FrameSvgItem {
+        id : scrollbarSvg
+
+        visible: false
+
+        imagePath: "widgets/scrollbar"
+    }
+
+    PlasmaCore.FrameSvgItem {
         id : backgroundSvg
 
         visible: false
@@ -226,7 +234,7 @@ Item {
     Component.onCompleted: {
         plasmoid.setAction("menuedit", i18n("Edit Applications..."));
 
-        //rootModel.refreshed.connect(reset);
+        rootModel.refreshed.connect(reset);
         //dragHelper.dropped.connect(resetDragSource);
     }
 }

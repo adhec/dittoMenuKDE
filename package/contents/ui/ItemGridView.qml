@@ -24,6 +24,7 @@ import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 import org.kde.kquickcontrolsaddons 2.0
 import org.kde.draganddrop 2.0
+import QtQuick.Controls 2.12
 
 FocusScope {
     id: itemGrid
@@ -35,7 +36,7 @@ FocusScope {
 
     signal itemActivated(int index, string actionId, string argument)
 
-    property bool dragEnabled: true
+    property bool dragEnabled: false
     property bool dropEnabled: false
     property bool showLabels: true
     property alias usesPlasmaTheme: gridView.usesPlasmaTheme
@@ -51,8 +52,8 @@ FocusScope {
     property alias iconSize: gridView.iconSize
     property alias scrollBar: scrollArea
 
-    property alias horizontalScrollBarPolicy: scrollArea.horizontalScrollBarPolicy
-    property alias verticalScrollBarPolicy: scrollArea.verticalScrollBarPolicy
+    //<>property alias horizontalScrollBarPolicy: scrollArea.horizontalScrollBarPolicy
+    //<>property alias verticalScrollBarPolicy: scrollArea.verticalScrollBarPolicy
 
     onDropEnabledChanged: {
         if (!dropEnabled && "dropPlaceHolderIndex" in model) {
@@ -183,19 +184,19 @@ FocusScope {
             }
         }
 
-        PlasmaExtras.ScrollArea {
+        //PlasmaExtras.ScrollArea
+        Flickable{
             id: scrollArea
 
+            clip: true
             anchors.fill: parent
-
+            boundsBehavior: Flickable.StopAtBounds
+            interactive: false
             focus: true
-
-            horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOff
 
             GridView {
                 id: gridView
-
-                width:  itemGrid.width - units.largeSpacing
+                width:  itemGrid.width
                 height: itemGrid.height
 
                 signal itemContainsMouseChanged(bool containsMouse)
@@ -208,6 +209,13 @@ FocusScope {
                 property int animationDuration: itemGrid.dropEnabled ? resetAnimationDurationTimer.interval : 0
 
                 focus: true
+                snapMode: GridView.SnapToRow
+
+                ScrollBar.vertical: ScrollBar {
+                      visible: true
+                      active:  true
+                      policy: ScrollBar.AlwaysOn;
+                  }
 
                 currentIndex: -1
 

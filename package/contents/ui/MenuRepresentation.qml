@@ -76,7 +76,7 @@ Item{
                 animation1.start()
 
             }else{
-                focusScope.opacity = 0
+                rootItem.opacity = 0
             }
         }
 
@@ -98,6 +98,9 @@ Item{
 
         function reset() {
             searchField.text = "";
+            globalFavoritesGrid.model = globalFavorites
+            allAppsGrid.model = rootModel.modelForRow(0);
+
             if(showFavorites)
                 globalFavoritesGrid.tryActivate(0,0)
             else
@@ -165,7 +168,7 @@ Item{
 
         FocusScope {
 
-            id: focusScope
+            id: rootItem
             Layout.minimumWidth:  (root.cellSize *  plasmoid.configuration.numberColumns)+ units.largeSpacing
             Layout.maximumWidth:  (root.cellSize *  plasmoid.configuration.numberColumns)+ units.largeSpacing
             Layout.minimumHeight: (root.cellSize *  plasmoid.configuration.numberRows) + searchField.implicitHeight + (plasmoid.configuration.viewUser ? main.sizeImage*0.5 : units.largeSpacing * 1.5 ) +  units.largeSpacing * 6
@@ -179,7 +182,7 @@ Item{
             Logic {   id: logic }
 
 
-            OpacityAnimator { id: animation1; target: focusScope; from: 0; to: 1; }
+            OpacityAnimator { id: animation1; target: rootItem; from: 0; to: 1; }
 
             PlasmaCore.DataSource {
                 id: pmEngine
@@ -394,7 +397,7 @@ Item{
                     onClicked: {
                         searchField.text = ""
                         root.showFavorites = false
-                        allAppsGrid.scrollBar.flickableItem.contentY = 0;
+                        //<>allAppsGrid.scrollBar.flickableItem.contentY = 0;
                     }
 
                 }
@@ -406,7 +409,6 @@ Item{
             //
             //
 
-
             ItemGridView {
                 id: globalFavoritesGrid
                 visible: (plasmoid.configuration.showFavoritesFirst || root.showFavorites ) && !root.searching && root.showFavorites
@@ -415,19 +417,18 @@ Item{
                     topMargin: units.largeSpacing * 2
                     left: parent.left
                     right: parent.right
-
                 }
 
-                width: root.cellSize *  plasmoid.configuration.numberColumns  + units.largeSpacing
+                width:  root.cellSize *  plasmoid.configuration.numberColumns + units.largeSpacing
                 height: root.cellSize * plasmoid.configuration.numberRows
                 focus: true
                 cellWidth:   root.cellSize
                 cellHeight:  root.cellSize
-                iconSize:    root.iconSize
-                model: globalFavorites
+                iconSize:    root.iconSize                
+                dragEnabled: true
                 dropEnabled: true
                 usesPlasmaTheme: true
-                verticalScrollBarPolicy: Qt.ScrollBarAlwaysOn
+                //verticalScrollBarPolicy: Qt.ScrollBarAlwaysOn
                 onKeyNavUp: searchField.focus = true
                 Keys.onPressed: {
                     if (event.key == Qt.Key_Tab) {
@@ -480,8 +481,10 @@ Item{
                         cellHeight:  root.cellSize
                         iconSize:    root.iconSize
                         enabled: (opacity == 1) ? 1 : 0
+                        dropEnabled: false
+                        dragEnabled: false
                         opacity: root.searching ? 0 : 1
-                        model:  rootModel.modelForRow(0);
+
                         onOpacityChanged: {
                             if (opacity == 1) {
                                 allAppsGrid.scrollBar.flickableItem.contentY = 0;
