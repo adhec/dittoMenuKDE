@@ -39,3 +39,4 @@ Or if you know how to make a pull request
 | ko       |   34/37 |   91% |
 | nl       |   34/37 |   91% |
 | pl       |   36/37 |   97% |
+| tr       |   37/37 |  100% |
