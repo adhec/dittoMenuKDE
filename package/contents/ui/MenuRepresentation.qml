@@ -262,7 +262,7 @@ Item{
                 PlasmaComponents3.ToolButton {
                     icon.name:  "configure"
                     onClicked: logic.openUrl("file:///usr/share/applications/systemsettings.desktop")
-                    ToolTip.delay: 1000
+                    ToolTip.delay: 200
                     ToolTip.timeout: 1000
                     ToolTip.visible: hovered
                     ToolTip.text: i18n("System Preferences")
@@ -275,7 +275,7 @@ Item{
                 PlasmaComponents3.ToolButton {
                     icon.name:  "user-home"
                     onClicked: logic.openUrl("file:///usr/share/applications/org.kde.dolphin.desktop")
-                    ToolTip.delay: 1000
+                    ToolTip.delay: 200
                     ToolTip.timeout: 1000
                     ToolTip.visible: hovered
                     ToolTip.text: i18n("User Home")
@@ -285,7 +285,7 @@ Item{
                     icon.name:  "system-lock-screen"
                     onClicked: pmEngine.performOperation("lockScreen")
                     enabled: pmEngine.data["Sleep States"]["LockScreen"]
-                    ToolTip.delay: 1000
+                    ToolTip.delay: 200
                     ToolTip.timeout: 1000
                     ToolTip.visible: hovered
                     ToolTip.text: i18nc("@action", "Lock Screen")
@@ -294,7 +294,7 @@ Item{
                 PlasmaComponents3.ToolButton {
                     icon.name:   "system-shutdown"
                     onClicked: pmEngine.performOperation("requestShutDown")
-                    ToolTip.delay: 1000
+                    ToolTip.delay: 200
                     ToolTip.timeout: 1000
                     ToolTip.visible: hovered
                     ToolTip.text: i18nd("plasma_lookandfeel_org.kde.lookandfeel", "Leave ... ")
@@ -389,6 +389,10 @@ Item{
                         searchField.text = ""
                         root.showFavorites = true
                     }
+                    ToolTip.delay: 200
+                    ToolTip.timeout: 1000
+                    ToolTip.visible: hovered
+                    ToolTip.text: i18n("Favorites")
 
                 }
                 PlasmaComponents3.ToolButton {
@@ -399,7 +403,10 @@ Item{
                         root.showFavorites = false
                         //<>allAppsGrid.scrollBar.flickableItem.contentY = 0;
                     }
-
+                    ToolTip.delay: 200
+                    ToolTip.timeout: 1000
+                    ToolTip.visible: hovered
+                    ToolTip.text: i18n("All apps")
                 }
             }
 

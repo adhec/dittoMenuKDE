@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dittomenu\n"
 "Report-Msgid-Bugs-To: https://store.kde.org/p/1312669/\n"
-"POT-Creation-Date: 2022-03-07 18:58-0500\n"
+"POT-Creation-Date: 2022-04-21 22:12-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -170,3 +170,11 @@ msgstr "Merhaba, "
 #: ../contents/ui/MenuRepresentation.qml
 msgid "Type here to search ..."
 msgstr "Aramak için buraya yazınız ..."
+
+#: ../contents/ui/MenuRepresentation.qml
+msgid "Favorites"
+msgstr ""
+
+#: ../contents/ui/MenuRepresentation.qml
+msgid "All apps"
+msgstr ""
