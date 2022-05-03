@@ -110,7 +110,7 @@ msgstr "검색"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Expand search to bookmarks, files and emails"
-msgstr "책갈피, 파일, 이메일에서도 표시"
+msgstr "책갈피, 파일, 이메일도 검색하기"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Show user icon"
@@ -150,7 +150,7 @@ msgstr "시스템 설정"
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "User Home"
-msgstr ""
+msgstr "사용자 홈"
 
 #: ../contents/ui/MenuRepresentation.qml
 msgctxt "@action"
@@ -159,19 +159,19 @@ msgstr "잠금"
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "Hi, "
-msgstr ""
+msgstr "안녕하세요, "
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "Type here to search ..."
-msgstr ""
+msgstr "검색..."
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "Favorites"
-msgstr ""
+msgstr "즐겨찾기"
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "All apps"
-msgstr ""
+msgstr "모든 프로그램"
 
 #~ msgid "Search ..."
 #~ msgstr "검색..."
