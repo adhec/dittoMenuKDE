@@ -138,30 +138,30 @@ Item{
                 horizMidPoint = screen.x + (screen.width / 2);
                 vertMidPoint = screen.y + (screen.height / 2);
                 x = horizMidPoint - width / 2;
-                y = screen.height - height - offset - panelSvg.margins.top;
+                y = screen.y + screen.height - height - offset - panelSvg.margins.top;
             } else if (plasmoid.location === PlasmaCore.Types.BottomEdge) {
                 horizMidPoint = screen.x + (screen.width / 2);
                 appletTopLeft = parent.mapToGlobal(0, 0);
                 x = (appletTopLeft.x < horizMidPoint) ? screen.x + offset : (screen.x + screen.width) - width - offset;
-                y = screen.height - height - offset - panelSvg.margins.top;
+                y = screen.y + screen.height - height - offset - panelSvg.margins.top;
             } else if (plasmoid.location === PlasmaCore.Types.TopEdge) {
                 horizMidPoint = screen.x + (screen.width / 2);
                 var appletBottomLeft = parent.mapToGlobal(0, parent.height);
                 x = (appletBottomLeft.x < horizMidPoint) ? screen.x + offset : (screen.x + screen.width) - width - offset;
                 y = parent.height + panelSvg.margins.bottom + offset;
-                y = y + (plasmoid.configuration.viewUser ? main.sizeImage*0.5 : 0);
+                y = screen.y + y + (plasmoid.configuration.viewUser ? main.sizeImage*0.5 : 0);
             } else if (plasmoid.location === PlasmaCore.Types.LeftEdge) {
                 vertMidPoint = screen.y + (screen.height / 2);
                 appletTopLeft = parent.mapToGlobal(0, 0);
                 x = parent.width + panelSvg.margins.right + offset;
                 y = (appletTopLeft.y < vertMidPoint) ? screen.y + offset : (screen.y + screen.height) - height - offset;
-                y = y + (plasmoid.configuration.viewUser ? main.sizeImage*0.5 : 0);
+                y = screen.y + y + (plasmoid.configuration.viewUser ? main.sizeImage*0.5 : 0);
             } else if (plasmoid.location === PlasmaCore.Types.RightEdge) {
                 vertMidPoint = screen.y + (screen.height / 2);
                 appletTopLeft = parent.mapToGlobal(0, 0);
                 x = appletTopLeft.x - panelSvg.margins.left - offset - width;
                 y = (appletTopLeft.y < vertMidPoint) ? screen.y + offset : (screen.y + screen.height) - height - offset;
-                y = y + (plasmoid.configuration.viewUser ? main.sizeImage*0.5 : 0);
+                y = screen.y + y + (plasmoid.configuration.viewUser ? main.sizeImage*0.5 : 0);
             }
             return Qt.point(x, y);
         }
