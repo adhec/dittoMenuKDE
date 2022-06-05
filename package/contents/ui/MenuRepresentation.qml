@@ -51,7 +51,8 @@ Item{
         id: root
 
         objectName: "popupWindow"
-        flags: Qt.Window
+        //flags: Qt.Window
+        flags: Qt.WindowStaysOnTopHint
         location: PlasmaCore.Types.Floating
         hideOnWindowDeactivate: true
 
@@ -594,7 +595,9 @@ Item{
         x: root.x + root.width/2 - sizeImage/2
 
         objectName: "popupWindowIcon"
+        //flags: Qt.WindowStaysOnTopHint
         flags: Qt.WindowStaysOnTopHint
+        type: "Notification"
         location: PlasmaCore.Types.Floating
 
         hideOnWindowDeactivate: false
