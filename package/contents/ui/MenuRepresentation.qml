@@ -349,12 +349,25 @@ Item{
                         }
                     }
 
+                    function backspaceWord() {
+                      if (!root.visible) {
+                        return;
+                      }
+                      focus = true;
+                      selectWord();
+                      remove(selectionStart, selectionEnd);
+                      deselect();
+                    }
+
                     function backspace() {
                         if (!root.visible) {
                             return;
                         }
                         focus = true;
-                        text = text.slice(0, -1);
+                        if (selectedText != "") {
+                          clear();
+                        } else 
+                          text = text.slice(0, -1);
                     }
 
                     function appendText(newText) {
@@ -362,6 +375,7 @@ Item{
                             return;
                         }
                         focus = true;
+                        // append the text
                         text = text + newText;
                     }
                     PlasmaCore.IconItem {
@@ -527,10 +541,17 @@ Item{
                             searchField.focus = true
                         } else if (event.key == Qt.Key_Backspace) {
                             event.accepted = true;
-                            if(root.searching)
+                            if(root.searching) {
+                              if(event.modifiers & Qt.ControlModifier)
+                                searchField.backspaceWord();
+                              else
                                 searchField.backspace();
+                            }
                             else
                                 searchField.focus = true
+                        } else if ((event.key == Qt.Key_A) && (event.modifiers & Qt.ControlModifier)) {
+                          searchField.selectAll();
+                          event.accepted = true;
                         } else if (event.key == Qt.Key_Escape) {
                             event.accepted = true;
                             if(root.searching){
@@ -553,8 +574,10 @@ Item{
                 if (event.key == Qt.Key_Escape) {
                     event.accepted = true;
                     if (root.searching) {
+                       // cancel search when not searching
                         reset();
                     } else {
+                       // close whole dialog when esc pressed and not searching
                         root.visible = false;
                     }
                     return;
@@ -564,9 +587,16 @@ Item{
                     return;
                 }
 
-                if (event.key == Qt.Key_Backspace) {
+                // if ctrl+backspace is pressed, remove word
+                if ((event.key == Qt.Key_Backspace) && (event.modifiers & Qt.ControlModifier)) {
+                    // take selected word start and apply new text 0 to selecteionStart
+                    event.accepted = true;
+                    searchField.backspaceWord();
+                    // if backspace is pressed, execute backspace function
+                } else if (event.key == Qt.Key_Backspace) {
                     event.accepted = true;
                     searchField.backspace();
+                // if any key was added, then append it to ???
                 }  else if (event.text != "") {
                     event.accepted = true;
                     searchField.appendText(event.text);
