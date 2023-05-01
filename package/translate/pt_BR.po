@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dittomenu\n"
 "Report-Msgid-Bugs-To: https://store.kde.org/p/1312669/\n"
-"POT-Creation-Date: 2022-11-10 07:02-0300\n"
+"POT-Creation-Date: 2023-05-01 16:59-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,11 +35,11 @@ msgstr "Adicionar aos Favoritos"
 
 #: ../contents/code/tools.js
 msgid "On All Activities"
-msgstr ""
+msgstr "Em todas as atividades"
 
 #: ../contents/code/tools.js
 msgid "On The Current Activity"
-msgstr ""
+msgstr "Na atividade atual"
 
 #: ../contents/code/tools.js
 msgid "Show In Favorites"
@@ -64,40 +64,16 @@ msgid "Clear Icon"
 msgstr "Resetar Ícone"
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Behavior"
-msgstr ""
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Show applications as:"
-msgstr ""
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Name only"
-msgstr "Nome apenas"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Description only"
-msgstr "Descrição apenas"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Name (Description)"
-msgstr "Nome (Descrição)"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Description (Name)"
-msgstr "Descrição (Nome)"
-
-#: ../contents/ui/ConfigGeneral.qml
 msgid "Show favorites first"
 msgstr "Exbir os Favoritros primeiro"
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Menu position:"
-msgstr "Posição do Menu"
+msgid "Menu position"
+msgstr "Posição do menu"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Default"
-msgstr "Parão"
+msgstr "Padrão"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Center"
@@ -108,40 +84,24 @@ msgid "Center bottom"
 msgstr "Centro inferior"
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Search"
-msgstr "Pesquisar"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Expand search to bookmarks, files and emails"
-msgstr "Expandir a pesquisa para favoritos, arquivos e e-mails"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Show user icon"
-msgstr "Exibir avatar"
-
-#: ../contents/ui/ConfigGeneral.qml
 msgid "Show labels in two lines"
 msgstr "Exibir os nomes em duas linhas"
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Grid"
-msgstr "Tabela"
+msgid "Number of columns"
+msgstr "Numero de colunas"
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Number of columns in grid"
-msgstr "Número de colunas"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Number of rows in grid"
-msgstr "Número de linhas"
+msgid "Number of rows"
+msgstr "Numero de filas"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Unhide all hidden applications"
-msgstr ""
+msgstr "Mostrar aplicativos ocultos"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Unhidden!"
-msgstr ""
+msgstr "Reexibido"
 
 #: ../contents/ui/main.qml
 msgid "Edit Applications..."
@@ -156,9 +116,12 @@ msgid "User Home"
 msgstr "Diretório do Usuário"
 
 #: ../contents/ui/MenuRepresentation.qml
-msgctxt "@action"
 msgid "Lock Screen"
-msgstr "Bloquear Tela"
+msgstr "Tela de bloqueio"
+
+#: ../contents/ui/MenuRepresentation.qml
+msgid "Leave ..."
+msgstr "Sair ..."
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "Hi, "
@@ -169,7 +132,7 @@ msgid "Type here to search ..."
 msgstr "Digite aqui para pesquisar"
 
 #: ../contents/ui/MenuRepresentation.qml
-msgid "Favorits"
+msgid "Favorites"
 msgstr "Favoritos"
 
 #: ../contents/ui/MenuRepresentation.qml

@@ -94,14 +94,14 @@ PlasmaExtras.ScrollArea {
     Column {
         id: itemColumn
 
-        width: itemMultiGrid.width //- units.gridUnit
+        width: itemMultiGrid.width //- PlasmaCore.Units.gridUnit
 
         Repeater {
             id: repeater
 
             delegate: Item {
                 width: itemColumn.width
-                //height:  gridViewLabel.height + gridView.height + (index == repeater.count - 1 ? 0 : units.smallSpacing)
+                //height:  gridViewLabel.height + gridView.height + (index == repeater.count - 1 ? 0 : PlasmaCore.Units.smallSpacing)
                 height: gridView.height
                 //visible:  gridView.count > 0
 

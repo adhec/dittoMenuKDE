@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dittomenu\n"
 "Report-Msgid-Bugs-To: https://store.kde.org/p/1312669/\n"
-"POT-Creation-Date: 2022-04-21 22:12-0300\n"
+"POT-Creation-Date: 2023-05-01 16:59-0300\n"
 "PO-Revision-Date: 2022-04-05 10:40+0100\n"
 "Last-Translator: Krzysztof Korab <korapps@outlook.com>\n"
 "Language-Team: \n"
@@ -64,36 +64,12 @@ msgid "Clear Icon"
 msgstr "Wyczyść ikonę"
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Behavior"
-msgstr "Zachowanie"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Show applications as:"
-msgstr "Pokazuj programy jako:"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Name only"
-msgstr "Tylko nazwa"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Description only"
-msgstr "Tylko opis"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Name (Description)"
-msgstr "Nazwa (Opis)"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Description (Name)"
-msgstr "Opis (Nazwa)"
-
-#: ../contents/ui/ConfigGeneral.qml
 msgid "Show favorites first"
 msgstr "Najpierw pokaż ulubione"
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Menu position:"
-msgstr "Położenie menu:"
+msgid "Menu position"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Default"
@@ -108,32 +84,16 @@ msgid "Center bottom"
 msgstr "Wyśrodkowane, na dole"
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Search"
-msgstr "Szukaj"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Expand search to bookmarks, files and emails"
-msgstr "Rozszerz wyszukiwanie na zakładki, pliki i pocztę"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Show user icon"
-msgstr "Pokaż ikonę użytkownika"
-
-#: ../contents/ui/ConfigGeneral.qml
 msgid "Show labels in two lines"
 msgstr "Pokaż podpisy w dwóch liniach"
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Grid"
-msgstr "Siatka"
+msgid "Number of columns"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Number of columns in grid"
-msgstr "Liczba kolumn w siatce"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Number of rows in grid"
-msgstr "Liczba wierszy w siatce"
+msgid "Number of rows"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Unhide all hidden applications"
@@ -156,9 +116,12 @@ msgid "User Home"
 msgstr "Katalog domowy"
 
 #: ../contents/ui/MenuRepresentation.qml
-msgctxt "@action"
 msgid "Lock Screen"
-msgstr "Zablokuj ekran"
+msgstr ""
+
+#: ../contents/ui/MenuRepresentation.qml
+msgid "Leave ..."
+msgstr ""
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "Hi, "
@@ -175,3 +138,46 @@ msgstr ""
 #: ../contents/ui/MenuRepresentation.qml
 msgid "All apps"
 msgstr ""
+
+#~ msgctxt "@action"
+#~ msgid "Lock Screen"
+#~ msgstr "Zablokuj ekran"
+
+#~ msgid "Behavior"
+#~ msgstr "Zachowanie"
+
+#~ msgid "Show applications as:"
+#~ msgstr "Pokazuj programy jako:"
+
+#~ msgid "Name only"
+#~ msgstr "Tylko nazwa"
+
+#~ msgid "Description only"
+#~ msgstr "Tylko opis"
+
+#~ msgid "Name (Description)"
+#~ msgstr "Nazwa (Opis)"
+
+#~ msgid "Description (Name)"
+#~ msgstr "Opis (Nazwa)"
+
+#~ msgid "Menu position:"
+#~ msgstr "Położenie menu:"
+
+#~ msgid "Search"
+#~ msgstr "Szukaj"
+
+#~ msgid "Expand search to bookmarks, files and emails"
+#~ msgstr "Rozszerz wyszukiwanie na zakładki, pliki i pocztę"
+
+#~ msgid "Show user icon"
+#~ msgstr "Pokaż ikonę użytkownika"
+
+#~ msgid "Grid"
+#~ msgstr "Siatka"
+
+#~ msgid "Number of columns in grid"
+#~ msgstr "Liczba kolumn w siatce"
+
+#~ msgid "Number of rows in grid"
+#~ msgstr "Liczba wierszy w siatce"

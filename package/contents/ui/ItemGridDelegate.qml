@@ -56,7 +56,7 @@ Item {
     }
 
     Item{
-        height: iconSize + units.gridUnit * 2 + units.smallSpacing
+        height: iconSize + PlasmaCore.Units.gridUnit * 2 + PlasmaCore.Units.smallSpacing
         width: parent.width
         anchors.centerIn: parent
 
@@ -79,13 +79,13 @@ Item {
             visible: showLabel
             anchors {
                 top: icon.bottom
-                topMargin: units.smallSpacing
+                topMargin: PlasmaCore.Units.smallSpacing
                 horizontalCenter: parent.horizontalCenter
             }
             maximumLineCount: plasmoid.configuration.labels2lines ? 2 : 1
             horizontalAlignment: Text.AlignHCenter
-            width: parent.width - units.largeSpacing
-            height: units.gridUnit * 2
+            width: parent.width - PlasmaCore.Units.largeSpacing
+            height: PlasmaCore.Units.gridUnit * 2
             elide: Text.ElideRight
             wrapMode: Text.Wrap
             color: theme.textColor

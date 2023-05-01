@@ -28,12 +28,12 @@ Item {
 
     readonly property var screenGeometry: plasmoid.screenGeometry
     readonly property bool inPanel: (plasmoid.location == PlasmaCore.Types.TopEdge
-        || plasmoid.location == PlasmaCore.Types.RightEdge
-        || plasmoid.location == PlasmaCore.Types.BottomEdge
-        || plasmoid.location == PlasmaCore.Types.LeftEdge)
+                                     || plasmoid.location == PlasmaCore.Types.RightEdge
+                                     || plasmoid.location == PlasmaCore.Types.BottomEdge
+                                     || plasmoid.location == PlasmaCore.Types.LeftEdge)
     readonly property bool vertical: (plasmoid.formFactor == PlasmaCore.Types.Vertical)
     readonly property bool useCustomButtonImage: (plasmoid.configuration.useCustomButtonImage
-        && plasmoid.configuration.customButtonImage.length != 0)
+                                                  && plasmoid.configuration.customButtonImage.length != 0)
     property QtObject dashWindow: null
 
     Plasmoid.status: dashWindow && dashWindow.visible ? PlasmaCore.Types.RequiresAttentionStatus : PlasmaCore.Types.PassiveStatus
@@ -47,26 +47,26 @@ Item {
                 var scaledHeight = Math.floor(parent.width * (buttonIcon.implicitHeight / buttonIcon.implicitWidth));
                 root.Layout.minimumHeight = scaledHeight;
                 root.Layout.maximumHeight = scaledHeight;
-                root.Layout.minimumWidth = units.iconSizes.small;
-                root.Layout.maximumWidth = inPanel ? units.iconSizeHints.panel : -1;
+                root.Layout.minimumWidth = PlasmaCore.Units.iconSizes.small;
+                root.Layout.maximumWidth = inPanel ? PlasmaCore.Units.iconSizeHints.panel : -1;
             } else {
                 var scaledWidth = Math.floor(parent.height * (buttonIcon.implicitWidth / buttonIcon.implicitHeight));
                 root.Layout.minimumWidth = scaledWidth;
                 root.Layout.maximumWidth = scaledWidth;
-                root.Layout.minimumHeight = units.iconSizes.small;
-                root.Layout.maximumHeight = inPanel ? units.iconSizeHints.panel : -1;
+                root.Layout.minimumHeight = PlasmaCore.Units.iconSizes.small;
+                root.Layout.maximumHeight = inPanel ? PlasmaCore.Units.iconSizeHints.panel : -1;
             }
         } else {
-            root.Layout.minimumWidth = units.iconSizes.small;
-            root.Layout.maximumWidth = inPanel ? units.iconSizeHints.panel : -1;
-            root.Layout.minimumHeight = units.iconSizes.small
-            root.Layout.maximumHeight = inPanel ? units.iconSizeHints.panel : -1;
+            root.Layout.minimumWidth = PlasmaCore.Units.iconSizes.small;
+            root.Layout.maximumWidth = inPanel ? PlasmaCore.Units.iconSizeHints.panel : -1;
+            root.Layout.minimumHeight = PlasmaCore.Units.iconSizes.small
+            root.Layout.maximumHeight = inPanel ? PlasmaCore.Units.iconSizeHints.panel : -1;
         }
     }
 
     Connections {
-        target: units.iconSizeHints
-        onPanelChanged: updateSizeHints()
+        target: PlasmaCore.Units.iconSizeHints
+        function onPanelChanged(){ updateSizeHints()}
     }
 
     PlasmaCore.IconItem {
@@ -75,7 +75,7 @@ Item {
         anchors.fill: parent
 
         readonly property double aspectRatio: (vertical ? implicitHeight / implicitWidth
-            : implicitWidth / implicitHeight)
+                                                        : implicitWidth / implicitHeight)
 
         source: useCustomButtonImage ? plasmoid.configuration.customButtonImage : plasmoid.configuration.icon
 

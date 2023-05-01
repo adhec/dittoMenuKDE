@@ -59,7 +59,7 @@ Item {
         MenuRepresentation {}
     }
 
-    Kicker.RootModel {
+    readonly property Kicker.RootModel rootModel: Kicker.RootModel {
         id: rootModel
 
         autoPopulate: false
@@ -69,57 +69,29 @@ Item {
         sorted: true
         showSeparators: false
         appletInterface: plasmoid
-
-        //paginate: true //TODO search bug origin
-        //pageSize: plasmoid.configuration.numberColumns *  plasmoid.configuration.numberRows //TODO search bug origin
-
         showAllApps: true
         showRecentApps: false
         showRecentDocs: false
         showRecentContacts: false
         showPowerSession: false
 
-        onFavoritesModelChanged: {
-           // if ("initForClient" in favoritesModel) {
-           //     favoritesModel.initForClient("org.kde.plasma.kicker.favorites.instance-" + plasmoid.id)
-
-           //     if (!plasmoid.configuration.favoritesPortedToKAstats) {
-           //         favoritesModel.portOldFavorites(plasmoid.configuration.favoriteApps);
-           //         plasmoid.configuration.favoritesPortedToKAstats = true;
-           //     }
-           // } else {
-           //     favoritesModel.favorites = plasmoid.configuration.favoriteApps;
-           // }
-           // favoritesModel.maxFavorites = pageSize;
-        }
-
-        onSystemFavoritesModelChanged: {
-            //systemFavoritesModel.enabled = false;
-            //systemFavoritesModel.favorites = plasmoid.configuration.favoriteSystemActions;
-            //systemFavoritesModel.maxFavorites = 8;
-        }
-
         Component.onCompleted: {
-            if ("initForClient" in favoritesModel) {
-                favoritesModel.initForClient("org.kde.plasma.kicker.favorites.instance-" + plasmoid.id)
 
-                if (!plasmoid.configuration.favoritesPortedToKAstats) {
-                    favoritesModel.portOldFavorites(plasmoid.configuration.favoriteApps);
-                    plasmoid.configuration.favoritesPortedToKAstats = true;
+            favoritesModel.initForClient("org.kde.plasma.kickoff.favorites.instance-" + plasmoid.id)
+
+            if (!plasmoid.configuration.favoritesPortedToKAstats) {
+                if (favoritesModel.count < 1) {
+                    favoritesModel.portOldFavorites(plasmoid.configuration.favorites);
                 }
-            } else {
-                favoritesModel.favorites = plasmoid.configuration.favoriteApps;
+                plasmoid.configuration.favoritesPortedToKAstats = true;
             }
-
-            favoritesModel.maxFavorites = pageSize;
-            rootModel.refresh();
         }
     }
 
     Connections {
         target: globalFavorites
 
-        onFavoritesChanged: {
+        function onFavoritesChanged () {
             plasmoid.configuration.favoriteApps = target.favorites;
         }
     }
@@ -127,7 +99,7 @@ Item {
     Connections {
         target: systemFavorites
 
-        onFavoritesChanged: {
+        function onFavoritesChanged() {
             plasmoid.configuration.favoriteSystemActions = target.favorites;
         }
     }
@@ -135,17 +107,16 @@ Item {
     Connections {
         target: plasmoid.configuration
 
-        onFavoriteAppsChanged: {
+        function onFavoriteAppsChanged () {
             globalFavorites.favorites = plasmoid.configuration.favoriteApps;
         }
 
-        onFavoriteSystemActionsChanged: {
+        function onFavoriteSystemActionsChanged () {
             systemFavorites.favorites = plasmoid.configuration.favoriteSystemActions;
         }
 
-        onHiddenApplicationsChanged: {
-            // Force refresh on hidden
-            //rootModel.refresh();
+        function onHiddenApplicationsChanged(){
+            rootModel.refresh(); // Force refresh on hidden
         }
     }
 
@@ -155,23 +126,7 @@ Item {
         appletInterface: plasmoid
         favoritesModel: globalFavorites
         deleteWhenEmpty: false
-
         mergeResults: true
-        //runners: plasmoid.configuration.useExtraRunners ? new Array("services").concat(plasmoid.configuration.extraRunners) : "services"
-
-        runners: {
-            var runners = new Array("services", "krunner_systemsettings");
-
-            if (plasmoid.configuration.useExtraRunners) {
-                runners = runners.concat(new Array("desktopsessions", "PowerDevil",
-                     "calculator", "unitconverter"));
-
-                runners = runners.concat(plasmoid.configuration.extraRunners);
-            }
-
-            return runners;
-        }
-        
     }
 
     Kicker.DragHelper {
@@ -234,7 +189,7 @@ Item {
     Component.onCompleted: {
         plasmoid.setAction("menuedit", i18n("Edit Applications..."));
 
-        rootModel.refreshed.connect(reset);
+        //rootModel.refreshed.connect(reset);
         //dragHelper.dropped.connect(resetDragSource);
     }
 }

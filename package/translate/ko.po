@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://store.kde.org/p/1312669/\n"
-"POT-Creation-Date: 2022-04-21 22:12-0300\n"
+"POT-Creation-Date: 2023-05-01 16:59-0300\n"
 "PO-Revision-Date: 2021-09-29 09:43+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -61,36 +61,12 @@ msgid "Clear Icon"
 msgstr "아이콘 초기화"
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Behavior"
-msgstr "행동"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Show applications as:"
-msgstr "프로그램 표시 형식:"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Name only"
-msgstr "이름만"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Description only"
-msgstr "설명만"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Name (Description)"
-msgstr "이름 (설명)"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Description (Name)"
-msgstr "설명 (이름)"
-
-#: ../contents/ui/ConfigGeneral.qml
 msgid "Show favorites first"
 msgstr "즐겨찾기 먼저 표시"
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Menu position:"
-msgstr "메뉴 위치:"
+msgid "Menu position"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Default"
@@ -105,32 +81,16 @@ msgid "Center bottom"
 msgstr "가운데 밑"
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Search"
-msgstr "검색"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Expand search to bookmarks, files and emails"
-msgstr "책갈피, 파일, 이메일도 검색하기"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Show user icon"
-msgstr "사용자 아이콘 표시"
-
-#: ../contents/ui/ConfigGeneral.qml
 msgid "Show labels in two lines"
 msgstr "라벨 두 줄로 표시"
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Grid"
-msgstr "배열"
+msgid "Number of columns"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Number of columns in grid"
-msgstr "열 개수"
-
-#: ../contents/ui/ConfigGeneral.qml
-msgid "Number of rows in grid"
-msgstr "행 개수"
+msgid "Number of rows"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Unhide all hidden applications"
@@ -153,9 +113,12 @@ msgid "User Home"
 msgstr "사용자 홈"
 
 #: ../contents/ui/MenuRepresentation.qml
-msgctxt "@action"
 msgid "Lock Screen"
 msgstr "잠금"
+
+#: ../contents/ui/MenuRepresentation.qml
+msgid "Leave ..."
+msgstr "떠나기..."
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "Hi, "
@@ -172,15 +135,3 @@ msgstr "즐겨찾기"
 #: ../contents/ui/MenuRepresentation.qml
 msgid "All apps"
 msgstr "모든 프로그램"
-
-#~ msgid "Search ..."
-#~ msgstr "검색..."
-
-#~ msgid "Center buttom"
-#~ msgstr "가운데 밑"
-
-#~ msgid "Lock Screen"
-#~ msgstr "잠금"
-
-#~ msgid "Leave ..."
-#~ msgstr "떠나기..."

@@ -22,8 +22,12 @@ X-KDE-PluginInfo-Website=https://store.kde.org/p/1312669/
 
 Name[ko]=Ditto 메뉴
 Name[nl]=Ditto-menu
+Name[pt_BR]=Ditto Menu
+Name[ru]=Ditto Menu
 Name[tr]=Ditto Menu
 Comment[ko]=프로그램 실행기
 Comment[nl]=Een instelbare programmastarter
 Comment[pl]=Konfigurowalne menu uruchamiania programów
+Comment[pt_BR]=Configuração do Menu Iniciar
+Comment[ru]=Настраиваемое меню приложений
 Comment[tr]=Yapılandırılabilir bir başlatıcı menüsü
