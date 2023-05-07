@@ -1,4 +1,4 @@
-# Translation of dittomenu in LANGUAGE
+# Translation of dittomenu in fr
 # Copyright (C) 2023
 # This file is distributed under the same license as the dittomenu package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
