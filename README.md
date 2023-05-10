@@ -1,22 +1,55 @@
-# ditto-menu
-menu launcher for plasma KDE
+# Ditto menu
 
-Download from: [https://www.pling.com/p/1312669/](https://www.pling.com/p/1312669/)
+Menu launcher for plasma KDE
 
-### Previews: 
+### Features
 
-![Image of ditto](https://github.com/adhec/dittoMenuKDE/blob/main/preview.jpg)
+- Custom menu position
+- Hide applications
+- Favorite applications
 
-### Coffee
+## Installation
 
-Thanks for all the support. If you like what I do,
-Share your ❤️ Buy me a ☕
+Before using the menu, install the addons in your linux distribution.
 
-[<img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png"  style="width:72px;">](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=V9Q8MK9CKSQW8&source=url)  or  [<img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg">](https://liberapay.com/_adhe_/donate)
+```bash
+# Ubuntu Jammy
+sudo apt install plasma-widgets-addons
 
-Have fun ;)
+# Arch / Manjaro
+sudo pacman -S kdeplasma-addons
+
+```
+Install the menu from: [https://store.kde.org/p/1312669/](https://store.kde.org/p/1312669/) or download from New Plasma Widgets.
+
+
+## Screenshots
+
+![Image of ditto](https://raw.githubusercontent.com/adhec/dittoMenuKDE/main/preview.jpg)
+
+## License
+
+This project is [GPL-2.0+](https://choosealicense.com/licenses/gpl-2.0/) license
+
+
+## Contributing
+
+Contributions are always welcome!
+
+## Support
+
+You can also help the project.
+
+<p>
+    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=V9Q8MK9CKSQW8&source=url" target="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=V9Q8MK9CKSQW8&source=url">
+        <img src="https://img.shields.io/badge/PayPal-adhec-blue.svg?logo=paypal&logoColor=00457C&style=flat-square" alt="PayPal"/>
+    </a>
+    <a href="https://liberapay.com/_adhe_/donate" target="https://liberapay.com/_adhe_/donate">
+        <img src="https://img.shields.io/badge/Liberapay-adhec-yellow.svg?logo=liberapay&logoColor=f6c915&style=flat-square" alt="Liberapay"/>
+    </a>
+</p>
 
 
 ## Translating
 
-See the [package/translate](package/translate) folder for instructions on translating.
+See the [package/translate](package/translate) folder for translation instructions.
