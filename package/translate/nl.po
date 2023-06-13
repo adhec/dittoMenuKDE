@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dittomenu\n"
 "Report-Msgid-Bugs-To: https://store.kde.org/p/1312669/\n"
-"POT-Creation-Date: 2023-05-01 16:59-0300\n"
+"POT-Creation-Date: 2023-06-13 13:58+0700\n"
 "PO-Revision-Date: 2022-01-01 20:09+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -69,8 +69,8 @@ msgid "Show favorites first"
 msgstr "Favorieten bovenaan tonen"
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Menu position"
-msgstr ""
+msgid "Menu position:"
+msgstr "Menupositie:"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Default"
@@ -90,11 +90,31 @@ msgstr "Labeltekst verdelen over twee regels"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Number of columns"
-msgstr ""
+msgstr "Aantal kolommen"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Number of rows"
-msgstr ""
+msgstr "Aantal rijen"
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Icon size:"
+msgstr "Pictogramgrootte:"
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Small"
+msgstr "Kleine"
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Medium"
+msgstr "Normale"
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Large"
+msgstr "Grote"
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Huge"
+msgstr "Zeer grote"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Unhide all hidden applications"
@@ -104,84 +124,38 @@ msgstr "Alle verborgen programma's zichtbaar maken"
 msgid "Unhidden!"
 msgstr "Alles programma's zijn weer zichtbaar!"
 
-#: ../contents/ui/main.qml
-msgid "Edit Applications..."
-msgstr "Programma's bewerken…"
-
 #: ../contents/ui/MenuRepresentation.qml
 msgid "System Preferences"
 msgstr "Systeeminstellingen"
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "User Home"
-msgstr ""
+msgstr "Thuismap gebruiker"
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "Lock Screen"
-msgstr ""
+msgstr "Scherm vergrendelen"
 
 #: ../contents/ui/MenuRepresentation.qml
-msgid "Leave ..."
-msgstr ""
+msgid "Leave..."
+msgstr "Verlaten..."
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "Hi, "
-msgstr ""
+msgstr "Hoi, "
 
 #: ../contents/ui/MenuRepresentation.qml
-msgid "Type here to search ..."
-msgstr ""
+msgid "Type here to search..."
+msgstr "Typ hier om te zoeken..."
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "Favorites"
-msgstr ""
+msgstr "Favorieten"
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "All apps"
-msgstr ""
+msgstr "Alle apps"
 
-#~ msgctxt "@action"
-#~ msgid "Lock Screen"
-#~ msgstr "Scherm vergrendelen"
-
-#~ msgid "Behavior"
-#~ msgstr "Gedrag"
-
-#~ msgid "Show applications as:"
-#~ msgstr "Programmaweergave:"
-
-#~ msgid "Name only"
-#~ msgstr "Alleen naam"
-
-#~ msgid "Description only"
-#~ msgstr "Alleen beschrijving"
-
-#~ msgid "Name (Description)"
-#~ msgstr "Naam (beschrijving)"
-
-#~ msgid "Description (Name)"
-#~ msgstr "Beschrijving (naam)"
-
-#~ msgid "Menu position:"
-#~ msgstr "Menupositie:"
-
-#~ msgid "Search"
-#~ msgstr "Zoeken"
-
-#~ msgid "Expand search to bookmarks, files and emails"
-#~ msgstr "Ook bladwijzers, bestanden en e-mails doorzoeken"
-
-#~ msgid "Show user icon"
-#~ msgstr "Gebruikersafbeelding tonen"
-
-#~ msgid "Grid"
-#~ msgstr "Rooster"
-
-#~ msgid "Number of columns in grid"
-#~ msgstr "Aantal kolommen op rooster"
-
-#~ msgid "Number of rows in grid"
-#~ msgstr "Aantal rijen op rooster"
-
-#~ msgid "Search ..."
-#~ msgstr "Zoeken…"
+#: ../contents/ui/main.qml
+msgid "Edit Applications..."
+msgstr "Programma's bewerken..."

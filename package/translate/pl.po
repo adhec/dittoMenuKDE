@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dittomenu\n"
 "Report-Msgid-Bugs-To: https://store.kde.org/p/1312669/\n"
-"POT-Creation-Date: 2023-05-01 16:59-0300\n"
+"POT-Creation-Date: 2023-06-13 13:58+0700\n"
 "PO-Revision-Date: 2022-04-05 10:40+0100\n"
 "Last-Translator: Krzysztof Korab <korapps@outlook.com>\n"
 "Language-Team: \n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../metadata.desktop
 msgid "Ditto Menu"
-msgstr ""
+msgstr "Menu Ditto"
 
 #: ../metadata.desktop
 msgid "A configurable launcher menu"
@@ -68,8 +68,8 @@ msgid "Show favorites first"
 msgstr "Najpierw pokaż ulubione"
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Menu position"
-msgstr ""
+msgid "Menu position:"
+msgstr "Położenie menu:"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Default"
@@ -89,11 +89,31 @@ msgstr "Pokaż podpisy w dwóch liniach"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Number of columns"
-msgstr ""
+msgstr "Liczba kolumn"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Number of rows"
-msgstr ""
+msgstr "Liczba wierszy"
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Icon size:"
+msgstr "Rozmiar ikony:"
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Small"
+msgstr "Małe"
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Medium"
+msgstr "Normalne"
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Large"
+msgstr "Duże"
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Huge"
+msgstr "Bardzo duże"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Unhide all hidden applications"
@@ -102,10 +122,6 @@ msgstr "Uwidocznij wszystkie ukryte aplikacje"
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Unhidden!"
 msgstr "Wszystkie programy są widoczne!"
-
-#: ../contents/ui/main.qml
-msgid "Edit Applications..."
-msgstr "Edytuj programy..."
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "System Preferences"
@@ -117,67 +133,28 @@ msgstr "Katalog domowy"
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "Lock Screen"
-msgstr ""
+msgstr "Zablokuj ekran"
 
 #: ../contents/ui/MenuRepresentation.qml
-msgid "Leave ..."
-msgstr ""
+msgid "Leave..."
+msgstr "Zostaw..."
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "Hi, "
 msgstr "Cześć, "
 
 #: ../contents/ui/MenuRepresentation.qml
-msgid "Type here to search ..."
+msgid "Type here to search..."
 msgstr "Wpisz tutaj, aby wyszukać..."
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "Favorites"
-msgstr ""
+msgstr "Ulubione"
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "All apps"
-msgstr ""
+msgstr "Wszystkie aplikacje"
 
-#~ msgctxt "@action"
-#~ msgid "Lock Screen"
-#~ msgstr "Zablokuj ekran"
-
-#~ msgid "Behavior"
-#~ msgstr "Zachowanie"
-
-#~ msgid "Show applications as:"
-#~ msgstr "Pokazuj programy jako:"
-
-#~ msgid "Name only"
-#~ msgstr "Tylko nazwa"
-
-#~ msgid "Description only"
-#~ msgstr "Tylko opis"
-
-#~ msgid "Name (Description)"
-#~ msgstr "Nazwa (Opis)"
-
-#~ msgid "Description (Name)"
-#~ msgstr "Opis (Nazwa)"
-
-#~ msgid "Menu position:"
-#~ msgstr "Położenie menu:"
-
-#~ msgid "Search"
-#~ msgstr "Szukaj"
-
-#~ msgid "Expand search to bookmarks, files and emails"
-#~ msgstr "Rozszerz wyszukiwanie na zakładki, pliki i pocztę"
-
-#~ msgid "Show user icon"
-#~ msgstr "Pokaż ikonę użytkownika"
-
-#~ msgid "Grid"
-#~ msgstr "Siatka"
-
-#~ msgid "Number of columns in grid"
-#~ msgstr "Liczba kolumn w siatce"
-
-#~ msgid "Number of rows in grid"
-#~ msgstr "Liczba wierszy w siatce"
+#: ../contents/ui/main.qml
+msgid "Edit Applications..."
+msgstr "Edytuj programy..."
