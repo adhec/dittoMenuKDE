@@ -37,10 +37,14 @@ import org.kde.kquickcontrolsaddons 2.0
 import org.kde.plasma.private.quicklaunch 1.0
 import QtQuick.Controls 2.12
 
-Item{
+Item {
 
     id: main
-    property int sizeImage: PlasmaCore.Units.iconSizes.large * 2
+    property int sizeImage:
+        if (plasmoid.configuration.iconSize === 0) { PlasmaCore.Units.iconSizes.small * 2;
+        } else if (plasmoid.configuration.iconSize === 2) { PlasmaCore.Units.iconSizes.large * 2;
+        } else if (plasmoid.configuration.iconSize === 3) { PlasmaCore.Units.iconSizes.huge * 2;
+        } else { PlasmaCore.Units.iconSizes.medium * 2 }
 
     onVisibleChanged: {
         root.visible = !root.visible
@@ -55,7 +59,7 @@ Item{
         location: PlasmaCore.Types.Floating
         hideOnWindowDeactivate: true
 
-        property int iconSize: PlasmaCore.Units.iconSizes.large
+        property int iconSize: sizeImage / 2
         property int cellSize: iconSize
                                + PlasmaCore.Units.gridUnit * 2
                                + (2 * Math.max(highlightItemSvg.margins.top + highlightItemSvg.margins.bottom,
@@ -295,14 +299,14 @@ Item{
                     ToolTip.delay: 200
                     ToolTip.timeout: 1000
                     ToolTip.visible: hovered
-                    ToolTip.text: i18n("Leave ...")
+                    ToolTip.text: i18n("Leave...")
                 }
             }
 
             PlasmaExtras.Heading {
                 anchors {
                     top: rowTop.bottom
-                    topMargin: PlasmaCore.Units.largeSpacing
+                    topMargin: iconSize / 24    // magic numbers? hell yeah, magic numbers!
                     horizontalCenter: parent.horizontalCenter
                 }
                 level: 1
@@ -328,7 +332,7 @@ Item{
                 PlasmaComponents3.TextField {
                     id: searchField
                     Layout.fillWidth: true
-                    placeholderText: i18n("Type here to search ...")
+                    placeholderText: i18n("Type here to search...")
                     leftPadding: PlasmaCore.Units.largeSpacing + PlasmaCore.Units.iconSizes.small
                     text: ""
                     //clearButtonShown: true  // TODO: kubuntu 20.04
