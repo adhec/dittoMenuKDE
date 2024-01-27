@@ -38,7 +38,7 @@
     </entry>
 
     <entry name="iconSize" type="Enum">
-    <label>Position.</label>
+    <label>Icon size.</label>
     <choices name="Settings::iconSize">
       <choice name="Small" />
       <choice name="Medium" />

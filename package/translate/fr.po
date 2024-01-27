@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dittomenu\n"
 "Report-Msgid-Bugs-To: https://store.kde.org/p/1312669/\n"
-"POT-Creation-Date: 2023-06-13 13:58+0700\n"
+"POT-Creation-Date: 2024-01-27 22:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: omano\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -97,23 +97,23 @@ msgstr "Nombre de lignes"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Icon size:"
-msgstr "Taille de l'icône:"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Small"
-msgstr "Petites"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Medium"
-msgstr "Normales"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Large"
-msgstr "Grandes"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Huge"
-msgstr "Énormes"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Unhide all hidden applications"
@@ -122,6 +122,10 @@ msgstr "Ne plus cacher les applications"
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Unhidden!"
 msgstr "Plus cachées!"
+
+#: ../contents/ui/main.qml
+msgid "Edit Applications..."
+msgstr ""
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "System Preferences"
@@ -154,7 +158,3 @@ msgstr "Favoris"
 #: ../contents/ui/MenuRepresentation.qml
 msgid "All apps"
 msgstr "Toutes les applications"
-
-#: ../contents/ui/main.qml
-msgid "Edit Applications..."
-msgstr "Modifier les applications..."

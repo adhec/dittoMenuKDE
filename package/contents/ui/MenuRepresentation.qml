@@ -37,14 +37,14 @@ import org.kde.kquickcontrolsaddons 2.0
 import org.kde.plasma.private.quicklaunch 1.0
 import QtQuick.Controls 2.12
 
-Item {
+Item{
 
     id: main
     property int sizeImage:
-        if (plasmoid.configuration.iconSize === 0) { PlasmaCore.Units.iconSizes.small * 2;
-        } else if (plasmoid.configuration.iconSize === 2) { PlasmaCore.Units.iconSizes.large * 2;
-        } else if (plasmoid.configuration.iconSize === 3) { PlasmaCore.Units.iconSizes.huge * 2;
-        } else { PlasmaCore.Units.iconSizes.medium * 2 }
+        if (plasmoid.configuration.iconSize === 0) PlasmaCore.Units.iconSizes.small * 2;
+        else if (plasmoid.configuration.iconSize === 2) PlasmaCore.Units.iconSizes.large * 2;
+        else if (plasmoid.configuration.iconSize === 3) PlasmaCore.Units.iconSizes.huge * 2;
+        else PlasmaCore.Units.iconSizes.medium * 2
 
     onVisibleChanged: {
         root.visible = !root.visible
@@ -171,8 +171,8 @@ Item {
         FocusScope {
 
             id: rootItem
-            Layout.minimumWidth:  (root.cellSize *  plasmoid.configuration.numberColumns)+ PlasmaCore.Units.largeSpacing
-            Layout.maximumWidth:  (root.cellSize *  plasmoid.configuration.numberColumns)+ PlasmaCore.Units.largeSpacing
+            Layout.minimumWidth:  (root.cellSize * plasmoid.configuration.numberColumns) + PlasmaCore.Units.largeSpacing + PlasmaCore.Units.smallSpacing
+            Layout.maximumWidth:  (root.cellSize * plasmoid.configuration.numberColumns) + PlasmaCore.Units.largeSpacing + PlasmaCore.Units.smallSpacing
             Layout.minimumHeight: (root.cellSize *  plasmoid.configuration.numberRows) + searchField.implicitHeight + (plasmoid.configuration.viewUser ? main.sizeImage*0.5 : PlasmaCore.Units.largeSpacing * 1.5 ) +  PlasmaCore.Units.largeSpacing * 6
             Layout.maximumHeight: (root.cellSize *  plasmoid.configuration.numberRows) + searchField.implicitHeight + (plasmoid.configuration.viewUser ? main.sizeImage*0.5 : PlasmaCore.Units.largeSpacing * 1.5 ) +  PlasmaCore.Units.largeSpacing * 6
 
@@ -306,7 +306,7 @@ Item {
             PlasmaExtras.Heading {
                 anchors {
                     top: rowTop.bottom
-                    topMargin: iconSize / 24    // magic numbers? hell yeah, magic numbers!
+                    topMargin: -(PlasmaCore.Units.iconSizes.large - sizeImage) / 2
                     horizontalCenter: parent.horizontalCenter
                 }
                 level: 1
@@ -437,7 +437,8 @@ Item {
                     right: parent.right
                 }
 
-                width:  root.cellSize *  plasmoid.configuration.numberColumns + PlasmaCore.Units.largeSpacing
+                width: root.cellSize * plasmoid.configuration.numberColumns
+                    + PlasmaCore.Units.largeSpacing + PlasmaCore.Units.smallSpacing * 1.8
                 height: root.cellSize * plasmoid.configuration.numberRows
                 focus: true
                 cellWidth:   root.cellSize
@@ -477,12 +478,14 @@ Item {
                     right: parent.right
 
                 }
-                width: root.cellSize *  plasmoid.configuration.numberColumns + PlasmaCore.Units.largeSpacing
+                width: root.cellSize * plasmoid.configuration.numberColumns
+                    + PlasmaCore.Units.largeSpacing + PlasmaCore.Units.smallSpacing * 1.8
                 height: root.cellSize *  plasmoid.configuration.numberRows
 
                 Item {
                     id: mainColumn
-                    width: root.cellSize *  plasmoid.configuration.numberColumns + PlasmaCore.Units.largeSpacing
+                    width: root.cellSize * plasmoid.configuration.numberColumns
+                        + PlasmaCore.Units.largeSpacing + PlasmaCore.Units.smallSpacing * 1.8
                     height: root.cellSize * plasmoid.configuration.numberRows
 
                     property Item visibleGrid: allAppsGrid
@@ -496,7 +499,8 @@ Item {
                     ItemGridView {
                         id: allAppsGrid
 
-                        width: root.cellSize *  plasmoid.configuration.numberColumns + PlasmaCore.Units.largeSpacing
+                        width: root.cellSize * plasmoid.configuration.numberColumns
+                            + PlasmaCore.Units.largeSpacing + PlasmaCore.Units.smallSpacing * 1.8
                         height: root.cellSize * plasmoid.configuration.numberRows
 
                         cellWidth:   root.cellSize
@@ -518,7 +522,8 @@ Item {
 
                     ItemMultiGridView {
                         id: runnerGrid
-                        width: root.cellSize *  plasmoid.configuration.numberColumns + PlasmaCore.Units.largeSpacing
+                        width: root.cellSize * plasmoid.configuration.numberColumns
+                            + PlasmaCore.Units.largeSpacing + PlasmaCore.Units.smallSpacing * 1.8
                         height: root.cellSize * plasmoid.configuration.numberRows
                         z: (opacity == 1.0) ? 1 : 0
                         aCellWidth: parent.width - PlasmaCore.Units.largeSpacing

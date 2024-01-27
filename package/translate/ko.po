@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://store.kde.org/p/1312669/\n"
-"POT-Creation-Date: 2023-06-13 13:58+0700\n"
+"POT-Creation-Date: 2024-01-27 22:40+0300\n"
 "PO-Revision-Date: 2021-09-29 09:43+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -66,7 +66,7 @@ msgstr "즐겨찾기 먼저 표시"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Menu position:"
-msgstr "메뉴 위치:"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Default"
@@ -86,31 +86,31 @@ msgstr "라벨 두 줄로 표시"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Number of columns"
-msgstr "열 수"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Number of rows"
-msgstr "행 수"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Icon size:"
-msgstr "아이콘 크기"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Small"
-msgstr "작은"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Medium"
-msgstr "일반"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Large"
-msgstr "큰"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Huge"
-msgstr "큰"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Unhide all hidden applications"
@@ -119,6 +119,10 @@ msgstr "모든 숨겨진 프로그램 복구"
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Unhidden!"
 msgstr "복구됨!"
+
+#: ../contents/ui/main.qml
+msgid "Edit Applications..."
+msgstr "프로그램 편집..."
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "System Preferences"
@@ -151,7 +155,3 @@ msgstr "즐겨찾기"
 #: ../contents/ui/MenuRepresentation.qml
 msgid "All apps"
 msgstr "모든 프로그램"
-
-#: ../contents/ui/main.qml
-msgid "Edit Applications..."
-msgstr "프로그램 편집..."

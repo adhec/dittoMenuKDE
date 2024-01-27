@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dittomenu\n"
 "Report-Msgid-Bugs-To: https://store.kde.org/p/1312669/\n"
-"POT-Creation-Date: 2023-06-13 13:58+0700\n"
+"POT-Creation-Date: 2024-01-27 22:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Edward Karate <edward.karate@ya.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,7 +47,7 @@ msgstr "Показать в избранном"
 
 #: ../contents/config/config.qml
 msgid "General"
-msgstr "Общее"
+msgstr "Основное"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Icon:"
@@ -123,6 +123,10 @@ msgstr "Показать все скрытые приложения"
 msgid "Unhidden!"
 msgstr "Готово!"
 
+#: ../contents/ui/main.qml
+msgid "Edit Applications..."
+msgstr "Редактировать меню..."
+
 #: ../contents/ui/MenuRepresentation.qml
 msgid "System Preferences"
 msgstr "Параметры системы"
@@ -155,6 +159,42 @@ msgstr "Избранное"
 msgid "All apps"
 msgstr "Все приложения"
 
-#: ../contents/ui/main.qml
-msgid "Edit Applications..."
-msgstr "Редактировать меню..."
+#~ msgctxt "@action"
+#~ msgid "Lock Screen"
+#~ msgstr "Заблокировать"
+
+#~ msgid "Behavior"
+#~ msgstr "Поведение"
+
+#~ msgid "Show applications as:"
+#~ msgstr "Показывать приложения в виде:"
+
+#~ msgid "Name only"
+#~ msgstr "Только имя"
+
+#~ msgid "Description only"
+#~ msgstr "Только описание"
+
+#~ msgid "Name (Description)"
+#~ msgstr "Имя (Описание)"
+
+#~ msgid "Description (Name)"
+#~ msgstr "Описание (Имя)"
+
+#~ msgid "Search"
+#~ msgstr "Поиск"
+
+#~ msgid "Expand search to bookmarks, files and emails"
+#~ msgstr "Расширить поиск по закладкам, файлам и почте"
+
+#~ msgid "Show user icon"
+#~ msgstr "Показать иконку пользователя"
+
+#~ msgid "Grid"
+#~ msgstr "Сетка"
+
+#~ msgid "Number of columns in grid"
+#~ msgstr "Количество колонок в сетке"
+
+#~ msgid "Number of rows in grid"
+#~ msgstr "Количество строк в сетке"

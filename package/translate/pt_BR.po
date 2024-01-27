@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dittomenu\n"
 "Report-Msgid-Bugs-To: https://store.kde.org/p/1312669/\n"
-"POT-Creation-Date: 2023-06-13 13:58+0700\n"
+"POT-Creation-Date: 2024-01-27 22:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,12 +51,12 @@ msgstr "Geral"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Icon:"
-msgstr "Ícone:"
+msgstr "Ícone"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgctxt "@item:inmenu Open icon chooser dialog"
 msgid "Choose..."
-msgstr "Procurar..."
+msgstr "Procurar"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgctxt "@item:inmenu Reset icon to default"
@@ -97,23 +97,23 @@ msgstr "Numero de filas"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Icon size:"
-msgstr "Tamanho do ícone:"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Small"
-msgstr "Pequenos"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Medium"
-msgstr "Normais"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Large"
-msgstr "Grandes"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Huge"
-msgstr "Muito grandes"
+msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Unhide all hidden applications"
@@ -121,7 +121,11 @@ msgstr "Mostrar aplicativos ocultos"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Unhidden!"
-msgstr "Reexibido!"
+msgstr "Reexibido"
+
+#: ../contents/ui/main.qml
+msgid "Edit Applications..."
+msgstr "Editar Programa"
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "System Preferences"
@@ -145,7 +149,7 @@ msgstr "Olá, "
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "Type here to search..."
-msgstr "Digite aqui para pesquisar..."
+msgstr "Digite aqui para pesquisar"
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "Favorites"
@@ -154,7 +158,3 @@ msgstr "Favoritos"
 #: ../contents/ui/MenuRepresentation.qml
 msgid "All apps"
 msgstr "Todos os programas"
-
-#: ../contents/ui/main.qml
-msgid "Edit Applications..."
-msgstr "Editar Programa..."

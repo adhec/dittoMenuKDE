@@ -204,6 +204,7 @@ Kirigami.FormLayout {
             i18n("Large"),
             i18n("Huge"),
         ]
+        onActivated: cfg_iconSize = currentIndex
     }
 
     RowLayout{
