@@ -37,6 +37,17 @@
       <default>false</default>
     </entry>
 
+    <entry name="iconSize" type="Enum">
+    <label>Icon size.</label>
+    <choices name="Settings::iconSize">
+      <choice name="Small" />
+      <choice name="Medium" />
+      <choice name="Large" />
+      <choice name="Huge" />
+    </choices>
+    <default>Medium</default>
+    </entry>
+
     <entry name="numberColumns" type="Int">
     <default>6</default>
     </entry>

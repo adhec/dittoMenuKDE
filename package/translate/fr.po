@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dittomenu\n"
 "Report-Msgid-Bugs-To: https://store.kde.org/p/1312669/\n"
-"POT-Creation-Date: 2023-05-01 16:59-0300\n"
+"POT-Creation-Date: 2024-01-27 22:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: omano\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,8 +68,8 @@ msgid "Show favorites first"
 msgstr "Voir les Favoris en premier"
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Menu position"
-msgstr "Position du menu"
+msgid "Menu position:"
+msgstr "Position du menu:"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Default"
@@ -96,12 +96,36 @@ msgid "Number of rows"
 msgstr "Nombre de lignes"
 
 #: ../contents/ui/ConfigGeneral.qml
+msgid "Icon size:"
+msgstr ""
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Small"
+msgstr ""
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Medium"
+msgstr ""
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Large"
+msgstr ""
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Huge"
+msgstr ""
+
+#: ../contents/ui/ConfigGeneral.qml
 msgid "Unhide all hidden applications"
 msgstr "Ne plus cacher les applications"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Unhidden!"
 msgstr "Plus cachées!"
+
+#: ../contents/ui/main.qml
+msgid "Edit Applications..."
+msgstr ""
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "System Preferences"
@@ -116,16 +140,16 @@ msgid "Lock Screen"
 msgstr "Verrouiller l'écran"
 
 #: ../contents/ui/MenuRepresentation.qml
-msgid "Leave ..."
-msgstr "Quitter ..."
+msgid "Leave..."
+msgstr "Quitter..."
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "Hi, "
 msgstr "Salut, "
 
 #: ../contents/ui/MenuRepresentation.qml
-msgid "Type here to search ..."
-msgstr "Rechercher ..."
+msgid "Type here to search..."
+msgstr "Rechercher..."
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "Favorites"

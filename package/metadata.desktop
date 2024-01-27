@@ -20,11 +20,13 @@ X-KDE-PluginInfo-License=GPL v2+
 X-KDE-PluginInfo-EnabledByDefault=true
 X-KDE-PluginInfo-Website=https://store.kde.org/p/1312669/
 
+Name[fr]=Ditto Menu
 Name[ko]=Ditto 메뉴
 Name[nl]=Ditto-menu
 Name[pt_BR]=Ditto Menu
 Name[ru]=Ditto Menu
 Name[tr]=Ditto Menu
+Comment[fr]=Un menu de lancement configurable
 Comment[ko]=프로그램 실행기
 Comment[nl]=Een instelbare programmastarter
 Comment[pl]=Konfigurowalne menu uruchamiania programów

@@ -51,6 +51,7 @@ Kirigami.FormLayout {
 
     property alias cfg_labels2lines: labels2lines.checked
     property alias cfg_displayPosition: displayPosition.currentIndex
+    property alias cfg_iconSize: iconSize.currentIndex
 
 
     RowLayout {
@@ -163,7 +164,7 @@ Kirigami.FormLayout {
     }
 
     ComboBox {
-        Kirigami.FormData.label: i18n("Menu position")
+        Kirigami.FormData.label: i18n("Menu position:")
         id: displayPosition
         model: [
             i18n("Default"),
@@ -192,6 +193,18 @@ Kirigami.FormLayout {
         minimumValue: 1
         maximumValue: 10
         Kirigami.FormData.label: i18n("Number of rows")
+    }
+
+    ComboBox {
+        Kirigami.FormData.label: i18n("Icon size:")
+        id: iconSize
+        model: [
+            i18n("Small"),
+            i18n("Medium"),
+            i18n("Large"),
+            i18n("Huge"),
+        ]
+        onActivated: cfg_iconSize = currentIndex
     }
 
     RowLayout{

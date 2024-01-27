@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dittomenu\n"
 "Report-Msgid-Bugs-To: https://store.kde.org/p/1312669/\n"
-"POT-Creation-Date: 2023-05-01 16:59-0300\n"
+"POT-Creation-Date: 2024-01-27 22:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,8 +68,8 @@ msgid "Show favorites first"
 msgstr "Exbir os Favoritros primeiro"
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Menu position"
-msgstr "Posição do menu"
+msgid "Menu position:"
+msgstr "Posição do menu:"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Default"
@@ -96,6 +96,26 @@ msgid "Number of rows"
 msgstr "Numero de filas"
 
 #: ../contents/ui/ConfigGeneral.qml
+msgid "Icon size:"
+msgstr ""
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Small"
+msgstr ""
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Medium"
+msgstr ""
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Large"
+msgstr ""
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Huge"
+msgstr ""
+
+#: ../contents/ui/ConfigGeneral.qml
 msgid "Unhide all hidden applications"
 msgstr "Mostrar aplicativos ocultos"
 
@@ -120,15 +140,15 @@ msgid "Lock Screen"
 msgstr "Tela de bloqueio"
 
 #: ../contents/ui/MenuRepresentation.qml
-msgid "Leave ..."
-msgstr "Sair ..."
+msgid "Leave..."
+msgstr "Sair..."
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "Hi, "
 msgstr "Olá, "
 
 #: ../contents/ui/MenuRepresentation.qml
-msgid "Type here to search ..."
+msgid "Type here to search..."
 msgstr "Digite aqui para pesquisar"
 
 #: ../contents/ui/MenuRepresentation.qml

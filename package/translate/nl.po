@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dittomenu\n"
 "Report-Msgid-Bugs-To: https://store.kde.org/p/1312669/\n"
-"POT-Creation-Date: 2023-05-01 16:59-0300\n"
+"POT-Creation-Date: 2024-01-27 22:40+0300\n"
 "PO-Revision-Date: 2022-01-01 20:09+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -69,8 +69,8 @@ msgid "Show favorites first"
 msgstr "Favorieten bovenaan tonen"
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Menu position"
-msgstr ""
+msgid "Menu position:"
+msgstr "Menupositie:"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Default"
@@ -94,6 +94,26 @@ msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Number of rows"
+msgstr ""
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Icon size:"
+msgstr ""
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Small"
+msgstr ""
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Medium"
+msgstr ""
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Large"
+msgstr ""
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Huge"
 msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
@@ -121,7 +141,7 @@ msgid "Lock Screen"
 msgstr ""
 
 #: ../contents/ui/MenuRepresentation.qml
-msgid "Leave ..."
+msgid "Leave..."
 msgstr ""
 
 #: ../contents/ui/MenuRepresentation.qml
@@ -129,7 +149,7 @@ msgid "Hi, "
 msgstr ""
 
 #: ../contents/ui/MenuRepresentation.qml
-msgid "Type here to search ..."
+msgid "Type here to search..."
 msgstr ""
 
 #: ../contents/ui/MenuRepresentation.qml
@@ -161,9 +181,6 @@ msgstr ""
 
 #~ msgid "Description (Name)"
 #~ msgstr "Beschrijving (naam)"
-
-#~ msgid "Menu position:"
-#~ msgstr "Menupositie:"
 
 #~ msgid "Search"
 #~ msgstr "Zoeken"

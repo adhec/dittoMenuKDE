@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dittomenu\n"
 "Report-Msgid-Bugs-To: https://store.kde.org/p/1312669/\n"
-"POT-Creation-Date: 2023-05-01 16:59-0300\n"
+"POT-Creation-Date: 2024-01-27 22:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Edward Karate <edward.karate@ya.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,23 +35,23 @@ msgstr "Добавить в избранное"
 
 #: ../contents/code/tools.js
 msgid "On All Activities"
-msgstr "По всем видам деятельности"
+msgstr "Для всех активностей"
 
 #: ../contents/code/tools.js
 msgid "On The Current Activity"
-msgstr "О текущей деятельности"
+msgstr "Для текущей активности"
 
 #: ../contents/code/tools.js
 msgid "Show In Favorites"
-msgstr "Показать в Избранном"
+msgstr "Показать в избранном"
 
 #: ../contents/config/config.qml
 msgid "General"
-msgstr "Общие"
+msgstr "Основное"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Icon:"
-msgstr "Значок"
+msgstr "Значок:"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgctxt "@item:inmenu Open icon chooser dialog"
@@ -65,11 +65,11 @@ msgstr "Очистить значок"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Show favorites first"
-msgstr "Сначала показать избранное"
+msgstr "Сначала отображать избранное"
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Menu position"
-msgstr "Положение меню"
+msgid "Menu position:"
+msgstr "Положение меню:"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Default"
@@ -77,7 +77,7 @@ msgstr "По умолчанию"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Center"
-msgstr "Центр"
+msgstr "По центру"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Center bottom"
@@ -85,7 +85,7 @@ msgstr "Снизу по центру"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Show labels in two lines"
-msgstr "Отображать метки в две строки"
+msgstr "Отображать названия в две строки"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Number of columns"
@@ -96,12 +96,32 @@ msgid "Number of rows"
 msgstr "Количество строк"
 
 #: ../contents/ui/ConfigGeneral.qml
+msgid "Icon size:"
+msgstr "Размер значков:"
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Small"
+msgstr "Маленькие"
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Medium"
+msgstr "Средние"
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Large"
+msgstr "Большие"
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Huge"
+msgstr "Огромные"
+
+#: ../contents/ui/ConfigGeneral.qml
 msgid "Unhide all hidden applications"
 msgstr "Показать все скрытые приложения"
 
 #: ../contents/ui/ConfigGeneral.qml
 msgid "Unhidden!"
-msgstr "Показаны!"
+msgstr "Готово!"
 
 #: ../contents/ui/main.qml
 msgid "Edit Applications..."
@@ -113,22 +133,22 @@ msgstr "Параметры системы"
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "User Home"
-msgstr "Домашняя папка"
+msgstr "Домашняя директория"
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "Lock Screen"
 msgstr "Заблокировать"
 
 #: ../contents/ui/MenuRepresentation.qml
-msgid "Leave ..."
-msgstr "Выход ..."
+msgid "Leave..."
+msgstr "Выход..."
 
 #: ../contents/ui/MenuRepresentation.qml
 msgid "Hi, "
 msgstr "Привет, "
 
 #: ../contents/ui/MenuRepresentation.qml
-msgid "Type here to search ..."
+msgid "Type here to search..."
 msgstr "Введите текст для поиска..."
 
 #: ../contents/ui/MenuRepresentation.qml
@@ -160,9 +180,6 @@ msgstr "Все приложения"
 
 #~ msgid "Description (Name)"
 #~ msgstr "Описание (Имя)"
-
-#~ msgid "Menu position:"
-#~ msgstr "Позиция меню"
 
 #~ msgid "Search"
 #~ msgstr "Поиск"

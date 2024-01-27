@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://store.kde.org/p/1312669/\n"
-"POT-Creation-Date: 2023-05-01 16:59-0300\n"
+"POT-Creation-Date: 2024-01-27 22:40+0300\n"
 "PO-Revision-Date: 2021-09-29 09:43+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -65,7 +65,7 @@ msgid "Show favorites first"
 msgstr "즐겨찾기 먼저 표시"
 
 #: ../contents/ui/ConfigGeneral.qml
-msgid "Menu position"
+msgid "Menu position:"
 msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
@@ -93,6 +93,26 @@ msgid "Number of rows"
 msgstr ""
 
 #: ../contents/ui/ConfigGeneral.qml
+msgid "Icon size:"
+msgstr ""
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Small"
+msgstr ""
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Medium"
+msgstr ""
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Large"
+msgstr ""
+
+#: ../contents/ui/ConfigGeneral.qml
+msgid "Huge"
+msgstr ""
+
+#: ../contents/ui/ConfigGeneral.qml
 msgid "Unhide all hidden applications"
 msgstr "모든 숨겨진 프로그램 복구"
 
@@ -117,7 +137,7 @@ msgid "Lock Screen"
 msgstr "잠금"
 
 #: ../contents/ui/MenuRepresentation.qml
-msgid "Leave ..."
+msgid "Leave..."
 msgstr "떠나기..."
 
 #: ../contents/ui/MenuRepresentation.qml
@@ -125,7 +145,7 @@ msgid "Hi, "
 msgstr "안녕하세요, "
 
 #: ../contents/ui/MenuRepresentation.qml
-msgid "Type here to search ..."
+msgid "Type here to search..."
 msgstr "검색..."
 
 #: ../contents/ui/MenuRepresentation.qml
